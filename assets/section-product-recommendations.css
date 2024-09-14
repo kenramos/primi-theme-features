@@ -1,0 +1,56 @@
+.product-recommendations,
+product-recently-viewed {
+  display: block;
+}
+
+.product-recommendations__heading {
+  text-align: center;
+  border: none;
+  background: transparent;
+  border-bottom: 2px solid transparent;
+  padding: 0 0 10px;
+  margin: 20px;
+  cursor: pointer;
+}
+
+.product-recommendations__heading.is-active {
+  border-bottom: 2px solid #000;
+}
+
+.SectionHeader__TabList.TabList {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+.TabPanel[aria-hidden="false"] {
+  display: block;
+}
+
+.TabPanel[aria-hidden="true"] {
+  display: none;
+}
+
+.Carousel {
+ list-style: none;
+}
+
+@media screen and (min-width: 992px) {
+  .product-recommendations {
+    padding-top: 30px;
+  }
+}
+
+@media screen and (max-width: 767px) { 
+  .product-recommendations {
+    padding: 0 10px;
+  }
+
+  .product-recommendations__heading {
+    padding: 0 10px 10px;
+    margin: 0 0 20px;
+    font-size: 15px;
+    letter-spacing: 2px;
+  }
+}
+

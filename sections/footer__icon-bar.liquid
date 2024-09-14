@@ -1,0 +1,121 @@
+{% assign id = section.id %}
+{% assign background = section.settings.background %}
+
+{% style %}
+  #shopify-section-{{ id }} {
+    background-color: {%- if background_alpha != 0 -%}{{ background }}{%- endif -%};
+    width: 100%;
+  }
+{% endstyle %}
+
+{% comment %} HTML markup {% endcomment %}
+{% if section.settings.show_icon_bar and section.blocks.size > 0 %}
+  <section class="page-width">
+    <div class="section__icon-bar">
+      {% for block in section.blocks %}
+
+          {% assign icon = block.settings.icon %}
+          {% if block.settings.link %}
+          <a href="{{ block.settings.link }}" class="icon-bar__block" {{ block.shopify_attributes }}>
+          {% else %}
+          <div class="icon-bar__block" {{ block.shopify_attributes }}>
+          {% endif %}
+              {% if icon != blank %}
+                {{ icon }}
+              {% endif %}
+              {% if block.settings.text != blank %}
+              <p class="icon-bar__text heading {% if section.settings.icon_position == 'column' %} text-align-center {% endif %}">{{ block.settings.text }}</p>
+              {% endif %}
+          {% if block.settings.link %}
+              </a>
+          {% else %}
+              </div>
+          {% endif %}
+      {% endfor %}
+    </div>
+  </section>
+{% endif %}
+
+{% schema %}
+
+{
+  "name": "Icon bar",
+  "class": "icon-bar",
+  "max_blocks": 6,
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_icon_bar",
+      "label": "Show icon bar",
+      "default": true
+    },
+    {
+      "type": "color",
+      "id": "background",
+      "label": "Background",
+      "default": "#8B8B8B"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "text",
+      "name": "Icon and text",
+      "settings": [
+        {
+          "type": "html",
+          "id": "icon",
+          "label": "Icon",
+          "default": "chat",
+          "info": "[Icon list](https://help.outofthesandbox.com/hc/en-us/articles/360021570294)"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text",
+          "default": "Descriptive text"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link",
+          "info": "Optional"
+        }
+      ]
+    }
+  ],
+  "default": {
+    "blocks": [
+      {
+        "type": "text",
+        "settings": {
+          "icon": "leaf",
+          "text": "100% Organic"
+        }
+      },
+      {
+        "type": "text",
+        "settings": {
+          "icon": "bunny",
+          "text": "Cruelty free"
+        }
+      },
+      {
+        "type": "text",
+        "settings": {
+          "icon": "chat",
+          "text": "24/7 support"
+        }
+      },
+      {
+        "type": "text",
+        "settings": {
+          "icon": "truck",
+          "text": "Free shipping"
+        }
+      }
+    ]
+  }
+}
+
+
+{% endschema %}

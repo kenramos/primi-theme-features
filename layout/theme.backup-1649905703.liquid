@@ -1,0 +1,161 @@
+<!doctype html>
+  <html class="no-js" lang="{{ request.locale.iso_code }}">
+    <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta name="theme-color" content="">
+      <link rel="canonical" href="{{ canonical_url }}">
+      <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
+  
+      {%- if settings.favicon != blank -%}
+        <link rel="icon" type="image/png" href="{{ settings.favicon | img_url: '32x32' }}">
+      {%- endif -%}
+  
+      {%- unless settings.type_header_font.system? and settings.type_body_font.system? -%}
+        <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
+      {%- endunless -%}
+  
+      <title>
+        {{ page_title }}
+        {%- if current_tags %} &ndash; tagged "{{ current_tags | join: ', ' }}"{% endif -%}
+        {%- if current_page != 1 %} &ndash; Page {{ current_page }}{% endif -%}
+        {%- unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless -%}
+      </title>
+  
+      {% if page_description %}
+        <meta name="description" content="{{ page_description | escape }}">
+      {% endif %}
+  
+      {% render 'meta-tags' %}
+  
+      <script src="{{ 'global.js' | asset_url }}" defer="defer"></script>
+      {{ content_for_header }}
+  
+      {% render 'css-variables' %}
+      {{ 'base.css' | asset_url | stylesheet_tag }}
+      {{ 'flickity.min.css' | asset_url | stylesheet_tag }}
+  
+      {%- unless settings.type_body_font.system? -%}
+        <link rel="preload" as="font" href="{{ settings.type_body_font | font_url }}" type="font/woff2" crossorigin>
+      {%- endunless -%}
+      {%- unless settings.type_header_font.system? -%}
+        <link rel="preload" as="font" href="{{ settings.type_header_font | font_url }}" type="font/woff2" crossorigin>
+      {%- endunless -%}
+  
+      {%- if settings.predictive_search_enabled -%}
+        <link rel="stylesheet" href="{{ 'component-predictive-search.css' | asset_url }}" media="print" onload="this.media='all'">
+      {%- endif -%}
+  
+      <script>document.documentElement.className = document.documentElement.className.replace('no-js', 'js');</script>
+
+  
+    </head>
+  
+    <body class="gradient {{ template.name }} {% if template.suffix != blank %} page--{{ template.suffix }} {% endif %}">
+      <a class="skip-to-content-link button visually-hidden" href="#MainContent">
+        {{ "accessibility.skip_to_text" | t }}
+      </a>
+      
+      <div class="PageOverlay"></div>
+      {%- if request.page_type != 'cart' -%}
+        {% section 'cart-notification' %}
+      {%- endif -%}
+  
+  
+      {% section 'announcement-bar' %}
+      {% section 'header' %}
+      <main id="MainContent" class="content-for-layout focus-none" role="main" tabindex="-1">
+        {{ content_for_layout }}
+      </main>
+      <script src="https://showcase.abovemarket.com/embed/gallery/20665" data-gallery-id="20665" async></script>
+      {% section 'footer__icon-bar' %}
+      {% section 'footer' %}
+  
+      <ul hidden>
+        <li id="a11y-refresh-page-message">{{ 'accessibility.refresh_page' | t }}</li>
+      </ul>
+  
+      <script>
+        window.routes = {
+          cart_add_url: '{{ routes.cart_add_url }}',
+          cart_change_url: '{{ routes.cart_change_url }}',
+          cart_update_url: '{{ routes.cart_update_url }}',
+          searchUrl: '{{ routes.search_url }}',
+          predictive_search_url: '{{ routes.predictive_search_url }}'
+        };
+  
+        window.cartStrings = {
+          error: `{{ 'sections.cart.cart_error' | t }}`,
+          quantityError: `{{ 'sections.cart.cart_quantity_error_html' | t }}`
+        }
+  
+        window.variantStrings = {
+          addToCart: `{{ 'products.product.add_to_cart' | t }}`,
+          OutOfStock: `{{ 'products.product.out_of_stock' | t }}`,
+          soldOut: `{{ 'products.product.sold_out' | t }}`,
+          unavailable: `{{ 'products.product.unavailable' | t }}`,
+        }
+  
+        window.accessibilityStrings = {
+          shareSuccess: `{{ 'general.share.success_message' | t }}`,
+        }
+      </script>
+  
+  
+      <script src="{{ 'flickity.pkgd.min.js' | asset_url }}" defer="defer"></script>
+  
+      {% comment %} <script src="{{ 'flickity-slider.js' | asset_url }}" defer="defer"></script> {% endcomment %}
+      
+      {{ 'swiper-bundle.min.css' | asset_url | stylesheet_tag }}
+      <script src="{{ 'swiper-bundle.min.js' | asset_url }}"></script>
+      <script src="{{ 'custom.js' | asset_url }}" defer="defer"></script>
+  
+      {%- if settings.predictive_search_enabled -%}
+        <script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script>
+      {%- endif -%}
+      {% include 'swymSnippet' %}
+      {% include 'swym-header-counter'%}
+  
+      <script src="https://a.klaviyo.com/media/js/onsite/onsite.js"></script>
+      <script>
+          var klaviyo = klaviyo || [];
+          klaviyo.init({
+            account: "WutnbP",
+            platform: "shopify"
+          });
+          klaviyo.enable("backinstock",{ 
+          trigger: {
+            product_page_text: "Notify Me When Available",
+            product_page_class: "btn",
+            product_page_text_align: "center",
+            product_page_margin: "0px",
+            replace_anchor: false,
+          },
+          modal: {
+            headline: "Register your interest",
+            body_content: "Enter your email address and we will notify you when the item becomes available and subscribe you to our newsletter.",
+          
+            email_field_label: "Email",
+            button_label: "Submit",
+            subscription_success_label: "You're in! We'll let you know when it's back.",
+            footer_content: '',
+            additional_styles: "@import url(//db.onlinewebfonts.com/c/0a086e32e41c5e5960b26626757f07f3?family=Apercu)",
+            font_family: 'Apercu',
+            headers_font_family: 'Apercu',
+            drop_background_color: "#000",
+            background_color: "#fff",
+            text_color: "#222",
+            button_text_color: "#fff",
+            button_background_color: "#000",
+            close_button_color: "#ccc",
+            error_background_color: "#fcd6d7",
+            error_text_color: "#C72E2F",
+            success_background_color: "#d3efcd",
+            success_text_color: "#1B9500"
+          }
+        });
+      </script>
+    </body>
+  </html>
+  

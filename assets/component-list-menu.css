@@ -1,0 +1,33 @@
+.list-menu--right {
+  right: 0;
+}
+
+.list-menu--disclosure {
+  position: absolute;
+  width: 14rem;
+  opacity: 0;
+  top: 90%;
+  border: 1px solid rgba(var(--color-foreground), 0.2);
+  background-color: rgb(var(--color-base-background-1));
+}
+
+.list-menu--disclosure:focus {
+  outline: none;
+}
+
+.list-menu__item--active {
+  text-decoration: underline;
+  text-underline-offset: 0.3rem;
+}
+
+.header__submenu .header__menu-item {
+  color: #000;
+  margin: 0;
+}
+
+.list-menu--disclosure.localization-selector {
+  max-height: 18rem;
+  overflow: auto;
+  width: 10rem;
+  padding: 0.5rem;
+}

@@ -1,0 +1,267 @@
+<link rel="stylesheet" href="{{ 'component-card.css' | asset_url }}" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="{{ 'component-price.css' | asset_url }}" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="{{ 'section-product-recommendations.css' | asset_url }}" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="{{ 'template-collection.css' | asset_url }}" media="print" onload="this.media='all'">
+
+<noscript>{{ 'component-card.css' | asset_url | stylesheet_tag }}</noscript>
+<noscript>{{ 'component-price.css' | asset_url | stylesheet_tag }}</noscript>
+<noscript>{{ 'section-product-recommendations.css' | asset_url | stylesheet_tag }}</noscript>
+<noscript>{{ 'template-collection.css' | asset_url | stylesheet_tag }}</noscript>
+
+
+<header class="SectionHeader SectionHeader--center">
+  <div class="Container Container--narrow">
+    <div class="SectionHeader__TabList TabList" role="tablist">
+        <button class="heading h2 uppercase title product-recommendations__heading TabList__Item is-active" data-action="toggle-tab" 
+          aria-controls="block-recommendations" aria-selected="true" role="tab">
+         {{ section.settings.heading | escape }}
+        </button>
+       
+        <button class="heading h2 uppercase title product-recommendations__heading TabList__Item" data-action="toggle-tab" aria-controls="block-RecentlyViewed" aria-selected="false" role="tab">
+          Recently viewed
+        </button>
+    </div>
+  </div>
+</header>
+
+<div class="TabPanel" id="block-recommendations" aria-hidden="false" role="tabpanel">
+  
+  <product-recommendations class="featured-collection product-recommendations page-width" data-url="{{ routes.product_recommendations_url }}?section_id={{ section.id }}&product_id={{ product.id }}&limit=4">
+    {% if recommendations.performed and recommendations.products_count > 0 %}
+      <div class="products-list product-slider swiper" >
+        <div class="swiper-wrapper swiper-slide" role="list">
+        {% for recommendation in recommendations.products %}
+          <div class="swiper-slide">
+            {% render 'product-card',
+              product_card_product: recommendation,
+              media_size: section.settings.image_ratio,
+              show_secondary_image: section.settings.show_secondary_image,
+              add_image_padding: section.settings.add_image_padding,
+              show_vendor: section.settings.show_vendor
+            %}
+          </div>
+          {%- else -%}
+            {%- for i in (1..4) -%}
+              <div class="">
+                {% render 'product-card-placeholder' %}
+              </div>
+            {%- endfor -%}
+          {%- endfor -%}
+        </div>
+       
+        <div class="swiper-pagination"></div>
+      </div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+    {% endif %}
+  </product-recommendations>
+</div>
+
+<div class="TabPanel" id="block-RecentlyViewed" aria-hidden="true" role="tabpanel">
+  {%- capture section_settings -%}
+    {
+      "productId": {% if template.name == 'product' %}{{ product.id }}{% else %}null{% endif %}
+    }
+  {%- endcapture -%}
+
+  <product-recently-viewed class="page-width featured-collection" data-section-settings='{{ section_settings }}'>
+    <div class="products-list product-slider swiper" >
+      <div class="Carousel swiper-wrapper product-recently-viewed" role="list"></div>
+     
+      <div class="swiper-pagination"></div>
+    </div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+  </product-recently-viewed>
+
+</div>
+
+{% javascript %}
+
+  class ProductRecommendations extends HTMLElement {
+    constructor() {
+      super();
+
+      const handleIntersection = (entries, observer) => {
+        if (!entries[0].isIntersecting) return;
+        observer.unobserve(this);
+
+        fetch(this.dataset.url)
+          .then(response => response.text())
+          .then(text => {
+            const html = document.createElement('div');
+            html.innerHTML = text;
+            const recommendations = html.querySelector('product-recommendations');
+            if (recommendations && recommendations.innerHTML.trim().length) {
+              this.innerHTML = recommendations.innerHTML;
+
+              var swiper = new Swiper(".product-slider", {
+                loop: true,
+                slidesPerView: 2,
+                spaceBetween: 20,
+                pagination: {
+                  el: ".swiper-pagination",
+                  clickable: true,
+                },
+                breakpoints: {
+                  640: {
+                    slidesPerView: 2,
+                     centeredSlides: true
+                  },
+                  768: {
+                    slidesPerView: 3,
+                    centeredSlides: true
+                  },
+                  1024: {
+                    slidesPerView: 4
+                  },
+                },
+                navigation: {
+                  nextEl: ".swiper-button-next",
+                  prevEl: ".swiper-button-prev",
+                }
+              });
+            }
+          })
+          .catch(e => {
+            console.error(e);
+          });
+      }
+
+      new IntersectionObserver(handleIntersection.bind(this), {rootMargin: '0px 0px 200px 0px'}).observe(this);
+    }
+  }
+
+  customElements.define('product-recommendations', ProductRecommendations);
+
+  class ProductRecentlyViewed extends HTMLElement {
+    constructor() {
+      super();
+      this.options = JSON.parse(this.getAttribute('data-section-settings'));
+     
+      if (this.options['productId']) {
+        this.saveProduct(this.options['productId']);
+      }
+      this.fetchProducts();
+    }
+
+    saveProduct(productId) {
+      var items = JSON.parse(localStorage.getItem('recentlyViewedProducts') || '[]');
+
+      // We check if the current product already exists, and if it does not, we add it at the start
+      if (!items.includes(productId)) {
+        items.unshift(productId);
+      }
+
+      // Then, we save the current product into the local storage, by keeping only the 8 most recent
+      try {
+        localStorage.setItem('recentlyViewedProducts', JSON.stringify(items.slice(0, 8)));
+      } catch (error) {
+        // Do nothing, this may happen in Safari in incognito mode
+      }
+    }
+
+    fetchProducts() {
+      var _this61 = this;
+
+      var queryString = this.getSearchQueryString();
+
+      if (queryString === '') {
+        return;
+      }
+
+      // If we have a non empty query string we do a search query
+      fetch(window.routes.searchUrl + '?view=recently-viewed-products&type=product&q=' + queryString)
+      
+        .then(function(response) {
+          return response.text();
+        })
+        .then(function(content) {
+          var tempElement = document.createElement('div');
+          tempElement.innerHTML = content;
+          // Set the content
+          tempElement.querySelectorAll('.product-grid .grid__item.swiper-slide').forEach(function(item) {
+            item.classList.remove('grid__item');
+          })
+          _this61.querySelector('.Carousel').innerHTML = tempElement.querySelector('.product-grid').innerHTML;
+        });
+    }
+
+    getSearchQueryString() {
+      var items = JSON.parse(localStorage.getItem('recentlyViewedProducts') || '[]');
+
+      // If we are on a product template, we make sure to remove the main product from the related product
+      if (items.includes(this.options['productId'])) {
+        items.splice(items.indexOf(this.options['productId']), 1);
+      }
+
+      return items.map(function (item) {
+        return 'id:' + item;
+      }).join(' OR ');
+    }
+  }
+
+  customElements.define('product-recently-viewed', ProductRecentlyViewed);
+{% endjavascript %}
+
+{% schema %}
+{
+  "name": "t:sections.product-recommendations.name",
+  "tag": "section",
+  "class": "spaced-section",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "t:sections.product-recommendations.settings.paragraph__1.content"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "default": "You may also like",
+      "label": "t:sections.product-recommendations.settings.heading.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.product-recommendations.settings.header__2.content"
+    },
+    {
+      "type": "select",
+      "id": "image_ratio",
+      "options": [
+        {
+          "value": "adapt",
+          "label": "t:sections.product-recommendations.settings.image_ratio.options__1.label"
+        },
+        {
+          "value": "portrait",
+          "label": "t:sections.product-recommendations.settings.image_ratio.options__2.label"
+        },
+        {
+          "value": "square",
+          "label": "t:sections.product-recommendations.settings.image_ratio.options__3.label"
+        }
+      ],
+      "default": "adapt",
+      "label": "t:sections.product-recommendations.settings.image_ratio.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_secondary_image",
+      "default": false,
+      "label": "t:sections.product-recommendations.settings.show_secondary_image.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "add_image_padding",
+      "default": false,
+      "label": "t:sections.product-recommendations.settings.add_image_padding.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_vendor",
+      "default": false,
+      "label": "t:sections.product-recommendations.settings.show_vendor.label"
+    }
+  ]
+}
+{% endschema %}

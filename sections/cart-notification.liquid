@@ -1,0 +1,203 @@
+{% comment %}
+    Renders cart notification
+
+    Accepts:
+    - color_scheme: {String} sets the color scheme of the notification (optional)
+
+    Usage:
+    {% section 'cart-notification' %}
+{% endcomment %}
+
+<cart-notification>
+  <div class="cart-notification-wrapper page-width{% if color_scheme %} color-{{ color_scheme }}{% endif %}">
+    <div id="cart-notification" class="cart-notification focus-inset Drawer Drawer--fromRight Cart_Drawer" aria-modal="true" aria-label="{{ 'general.cart.item_added' | t }}" role="dialog" tabindex="-1">
+      <div class="cart-notification__header Drawer__Header Drawer__Container">
+         <h2 class="cart-notification__heading">Cart</h2>
+        <button type="button" class="cart-notification__close modal__close-button link link--text focus-inset Drawer__Close" aria-label="{{ 'accessibility.close' | t }}">
+          <svg class="icon icon-close" aria-hidden="true" focusable="false"><use href="#icon-close"></svg>
+        </button>
+      </div>
+      <div class="Drawer__Content">
+        <div id="cart-notification-free-ship">
+          {%- if settings.amount_free_ship != blank -%}
+            {%- assign amount_free_ship = settings.amount_free_ship | plus: 0.0 -%}
+            <div class="cart-shipping" data-target="{{ amount_free_ship }}">
+            {%- if amount_free_ship > cart.total_price -%}
+                {%- assign more_add = settings.amount_free_ship | minus: cart.total_price -%}
+                {%- assign amount_percent = cart.total_price | divided_by: amount_free_ship | times: 100 -%}
+              {%- else -%}
+                {%- assign more_add = 0 -%}
+                {%- assign amount_percent = 100 -%}
+              {%- endif -%}
+              <p class="cart-shipping__num-wrapper">Add <span class="cart-shipping__num">{{ more_add | money }}</span> in items to cart for free express shipping </p>
+              <div class="progress">
+                <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:{{amount_percent}}%"></div>
+              </div>
+              <p class="cart-shipping__success heading uppercase">
+                <span>{{ 0 | money_without_trailing_zeros }}</span>
+                <span>{{ settings.amount_free_ship | money_without_trailing_zeros }} = free express shipping</span>
+              </p>
+            </div>
+          {%- endif -%}
+        </div>
+        
+        <div id="cart-notification-product" class="cart-notification-product">
+          {%- if cart != empty -%}
+            {%- for item in cart.items -%}
+              <div id="cart-notification-product-{{ item.id }}" class="cart-notification-productItem">
+                <div class="cart-remove-button" id="Remove-{{ item.index | plus: 1 }}" data-index="{{ item.index | plus: 1 }}">
+                  {% render 'icon-remove' %}
+                </div>
+                
+                {% if item.image %}
+                  <img class="cart-notification-product__image"
+                    src="{{ item.image | img_url: '140x' }}"
+                    alt="{{ item.image.alt | escape }}"
+                    width="80"
+                    height="{{ 80 | divided_by: item.image.aspect_ratio | ceil }}"
+                    loading="lazy"
+                  >
+                {% endif %}
+                <div class="cart-notification-product__info">
+                  <p class="cart-notification-product__name">{{ item.product.title | escape }}</p>
+                  {%- unless item.product.has_only_default_variant -%}
+                    <dl>
+                      {%- for option in item.options_with_values -%}
+                        <div class="cart-notification-product__option">
+                          <dt>{{ option.name }}: </dt>
+                          <dd>{{ option.value }}</dd>
+                        </div>
+                      {%- endfor -%}
+                    </dl>
+                  {%- endunless -%}
+                  <div class="cart-notification__wrapper">
+                    <div class="cart-notification-product__quantity">
+                      <quantity-input class="quantity">
+                        <button class="quantity__button no-js-hidden" name="minus" type="button">
+                          <span class="visually-hidden">{{ 'products.product.quantity.decrease' | t: product: item.product.title | escape }}</span>
+                          {%- render 'icon-minus' -%}
+                        </button>
+                        <input class="quantity__input"
+                          type="number"
+                          name="updates[]"
+                          value="{{ item.quantity }}"
+                          min="0"
+                          aria-label="{{ 'products.product.quantity.input_label' | t: product: item.product.title | escape }}"
+                          id="Quantity-{{ item.index | plus: 1 }}"
+                          data-index="{{ item.index | plus: 1 }}"
+                        >
+                        <button class="quantity__button no-js-hidden" name="plus" type="button">
+                          <span class="visually-hidden">{{ 'products.product.quantity.increase' | t: product: item.product.title | escape }}</span>
+                          {%- render 'icon-plus' -%}
+                        </button>
+                      </quantity-input>
+                    </div>
+                    <div class="cart-notification-product__price heading">
+                      {%- if item.original_line_price != item.final_line_price -%}
+                        <dl class="cart-item__discounted-prices">
+                          <dt class="visually-hidden">
+                            {{ 'products.product.price.sale_price' | t }}
+                          </dt>
+                          <dd class="price price--end">
+                            {{ item.final_line_price | money }}
+                          </dd>
+                        </dl>
+                      {%- else -%}
+                        <span class="price price--end">
+                          {{ item.original_line_price | money }}
+                        </span>
+                      {%- endif -%}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            {%- endfor -%}
+          {%- endif -%}
+        </div>
+        {%- if section.blocks.size > 0 and section.settings.show_suggestions_products -%}
+          {%- assign cart_items = '' -%}
+    
+          {%- for line_item in cart.items -%}
+            {%- assign trim_line_item = line_item.product.handle | strip -%}
+            {%- assign cart_items = cart_items | append: trim_line_item | append: ',' -%}
+          {%- endfor -%}
+    
+          {%- assign cart_items = cart_items | downcase | split: ',' | compact -%}
+    
+          <div class="cart-notification-product-upsell">
+            <h5 class="uppercase"> {{ section.settings.title }}</h5>
+            <div class="products-list list-product-upsell swiper">
+              <div class="Carousel swiper-wrapper">
+                {%- for block in section.blocks -%}
+
+                  {%- if cart_items contains block.settings.product -%}
+                    {%- continue -%}
+                  {%- endif -%}
+      
+                  {%- assign product = all_products[block.settings.product] -%}
+                  {%- if product != blank -%}
+                    <div class="swiper-slide">
+                      {% render 'product-upsell',
+                        product_card_product: product,
+                        media_size: 'adapt',
+                        show_secondary_image: false,
+                        add_image_padding: false,
+                        show_vendor: false
+                      %}
+                    </div>
+                  {%- endif -%}
+                {%- endfor -%}
+              </div>
+
+              <div class="swiper-button-next"></div>
+              <div class="swiper-button-prev"></div>
+            </div>
+          </div>
+        {%- endif -%}
+        <div class="cart-notification__links Drawer__Footer">
+          <div id="cart-notification-subtotal" class="cart-notification__subtotal cart-notification__wrapper  heading uppercase">
+            <span class="">Subtotal</span>
+            <span class="money" drawer-cart-total-price>{{ cart.total_price | money }}</span>
+          </div>
+          <div class="cart-notification__shipping">Taxes and shipping calculated at checkout</div>
+          <form action="{{ routes.cart_url }}" method="post" id="cart">
+            <button class="button button--secondary button--full-width" name="checkout" form="cart">{{ 'sections.cart.checkout' | t }}</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</cart-notification>
+
+{% schema %}
+{
+  "name": "Cart drawer",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_suggestions_products",
+      "label": "Show suggestions products",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    }
+  ],
+  "max_blocks": 8,
+  "blocks": [
+    {
+      "type": "product",
+      "name": "Product",
+      "settings": [
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Product"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

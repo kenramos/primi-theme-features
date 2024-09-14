@@ -1,0 +1,21 @@
+{%- if settings.amount_free_ship != blank -%}
+    {%- assign amount_free_ship = settings.amount_free_ship | plus: 0.0 -%}
+    <div class="cart-shipping" data-target="{{ amount_free_ship }}" 
+    {% if settings.free_ship_bg_image != blank %}style="background-image: url({{ settings.free_ship_bg_image | img_url: '480x' }})"{% endif %}>
+    {%- if amount_free_ship > cart.total_price -%}
+        {%- assign more_add = settings.amount_free_ship | minus: cart.total_price -%}
+        {%- assign amount_percent = cart.total_price | divided_by: amount_free_ship | times: 100 -%}
+    {%- else -%}
+        {%- assign more_add = 0 -%}
+        {%- assign amount_percent = 100 -%}
+    {%- endif -%}
+    <p class="cart-shipping__num-wrapper">Add <span class="cart-shipping__num">{{ more_add | money }}</span> in items to cart for free express shipping </p>
+    <div class="progress">
+        <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:{{amount_percent}}%"></div>
+    </div>
+    <p class="cart-shipping__success">
+        <span>{{ 0 | money_without_trailing_zeros }}</span>
+        <span>{{ settings.amount_free_ship | money_without_trailing_zeros }} = FREE EXPRESS SHIPPING </span>
+    </p>
+    </div>
+{%- endif -%}

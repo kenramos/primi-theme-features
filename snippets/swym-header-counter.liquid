@@ -1,0 +1,18 @@
+<script defer> 
+function renderWishlistCounter() {
+	var counter_elem = document.querySelectorAll(".swym-wishlist-header-counter");
+	if (counter_elem) {
+		for (var i = 0; i < counter_elem.length; i++) {
+			if (window._swat.renderWishlistCount) {
+				window._swat.renderWishlistCount(counter_elem[i], function(count, element) {
+					
+				});
+			}
+		}
+	}
+}
+if (!window.SwymCallbacks) {
+	window.SwymCallbacks = [];
+}
+window.SwymCallbacks.push(renderWishlistCounter);
+</script>

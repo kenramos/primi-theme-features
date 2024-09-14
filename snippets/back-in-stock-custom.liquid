@@ -1,0 +1,193 @@
+<modal-dialog
+  id="KlaviyoBIS-{{ product.id }}"
+  class="product-popup-modal klaviyo-bis-popup"
+  data-product-id="{{ product.id }}"
+>
+  <div class="modal__inner">
+    <div class="modal__centered medium-up--text-center">
+      <div class="modal__centered-content">
+      <div class="klaviyo-bis">
+          <h2>{{ 'products.product.out_of_stock_heading' | t  }}</h2>
+          
+          <p>{{ 'products.product.popup_body_content' | t  }}</p>
+           
+          <div class="form-vertical">
+            <form action="#" class="klaviyo-bis-form-custom">
+              <input type="hidden" name="subscribe_for_newsletter" value="true">
+              <input type="hidden" name="platform" value="shopify">
+              <input type="hidden" name="g" value="TeHSAM"> <!-- lst id -->
+              <input type="hidden" name="a" value="WutnbP"> <!-- pub api key -->
+
+              <input type="hidden" name="product" value="{{ product.id }}">
+              <h5 class="product__title uppercase">{{ product.title }}</h5>
+              <div {% if product.variants.size == 1 %}class="no-variants" {% endif %}>
+                <select id="KlaviyoBIS-{{ product.id }}--variants" name="variant" class="variants" style="width: 100%;">
+                  {%- for v in product.variants -%}
+                  {%- unless v.available -%}
+                    <option 
+                    {% if v == product.selected_or_first_available_variant %}selected="selected"{% endif %}
+                    value="{{ v.id }}">{{ v.title }}</option>
+                  {%- endunless -%}
+                  {%- endfor -%}
+                </select>
+              </div>
+
+              <input type="email" id="KlaviyoBIS-{{ product.id }}--email"
+              placeholder="Email"
+              class="input-full" name="email" autocorrect="off" autocapitalize="off" value="" required>
+
+              <div class="completed_message alert" style="display: none;">
+                {{ 'products.product.subscription_success_label' | t  }} 
+              </div>
+              <div class="error_message alert" style="display: none;"></div>
+          
+              <button type="submit" value="email" aria-label="Subscribe" class="button button--full submit-btn" style="width: 100%;">{{ 'products.product.popup_button_label' | t  }}</button>
+            </form>
+          </div>
+
+        </div>
+      </div>
+
+      <button id="ModalClose-{{ product.id }}" type="button" class="close-form-back-is-stock" aria-label="{{ 'accessibility.close' | t }}">{% render 'icon-close' %}</button>
+      
+    </div>
+  </div>
+</modal-dialog>
+
+<script>
+    let pid = {{ product.id }};
+   
+    let currentVId = {{ product.selected_or_first_available_variant.id }};
+    let id = 'KlaviyoBIS-' + pid;
+    let updateVId = '';
+    let productSection = document.getElementById('ProductSection-' + pid);
+     if (productSection) {
+       let triggerBtn = productSection.querySelector('.klaviyo-bis-trigger-custom');
+       let bisForm = productSection.querySelector('.klaviyo-bis-form-custom');
+       let submitBtn = bisForm.querySelector('.submit-btn');
+       let bisFormVariants = bisForm.querySelector('.variants');
+       let succEl = bisForm.querySelector('.completed_message');
+       let errEl = bisForm.querySelector('.error_message');
+       let modal = document.querySelector('#KlaviyoBIS-' + pid);
+       let variantOptionsArray = Array.from(bisFormVariants.options);
+       
+      triggerBtn.addEventListener('click', function() {
+        if (updateVId != '') {
+          bisFormVariants.selectedIndex = variantOptionsArray.findIndex(x => x.value == updateVId.id);
+        }
+        else {
+          bisFormVariants.selectedIndex = variantOptionsArray.findIndex(x => x.value == currentVId);
+        }
+        modal.show(triggerBtn);
+      })
+       
+       
+       bisForm.addEventListener('submit', e => {
+         e.preventDefault();
+         e.stopPropagation();
+         if (bisForm.checkValidity()) {
+           postFormData();
+         }
+       })
+       
+       function postFormData() {
+         succEl.style.display = 'none'
+         errEl.style.display = 'none'
+         var formData = new FormData(bisForm);
+         var data = {};
+         formData.forEach((value, key) => {
+           value = typeof value === 'string' ? value.trim() : value
+           if (value) {
+             if (key == 'name') {
+               let nameParts = value.split(' ')
+               if (nameParts[0]) {
+                 data.$first_name = nameParts[0]
+               }
+               if (nameParts[1]) {
+                 data.$last_name = nameParts[1]
+               }
+             } else {               
+               data[key] = value;
+             }
+           }
+         });
+         
+         if (!data.email || !data.variant || !data.product) {
+           return
+         }
+         // data.variant = 1338281066525
+         // data.product = 114834341917
+        submitBtn.setAttribute('disabled', 'true')
+          fetch("https://a.klaviyo.com/onsite/components/back-in-stock/subscribe", {
+            "headers": {
+              "accept": "*/*",
+              "accept-language": "en-US,en;q=0.9",
+              "content-type": "application/x-www-form-urlencoded",
+            },
+            "body": objToStrUrlEncode(data),
+            "method": "POST",
+            "mode": "cors",
+            "credentials": "omit"
+          })
+         .then(r => r.json())
+         .then(r => {
+           if (r.status == 200 || r.success) {
+             console.log(succEl);
+             succEl.style.display = 'block'
+             submitBtn.style.display = 'none'
+             
+             subscribeToList(data)
+
+           } else {
+             errEl.innerHTML = r.message
+             errEl.style.display = 'block'
+             submitBtn.removeAttribute('disabled')
+           }
+         })
+       }
+       
+       function subscribeToList(data) {
+         let newData = { $email: data.email, a: data.a, g: data.g, $fields: [] }
+         
+         if (data.$first_name) {
+           newData.$first_name = data.$first_name
+           newData.$fields.push('$first_name')
+         }
+         if (data.$last_name) {
+           newData.$last_name = data.$last_name
+           newData.$fields.push('$last_name')
+         }
+
+         if (data.phone_number) {
+           newData.$phone_number = data.phone_number
+           newData.$fields.push('$phone_number')
+         }
+         newData.$fields = newData.$fields.join(',')
+         
+         fetch("https://a.klaviyo.com/ajax/subscriptions/subscribe", {
+           "headers": {
+             "accept": "*/*",
+             "accept-language": "en-US,en;q=0.9",
+             "access-control-allow-headers": "*",
+             "content-type": "application/x-www-form-urlencoded; charset=UTF-8",
+           },
+           "referrer": "https://help.klaviyo.com/",
+           "referrerPolicy": "strict-origin-when-cross-origin",
+           "body": objToStrUrlEncode(newData),
+           "method": "POST",
+           "mode": "cors",
+           "credentials": "omit"
+         })
+       }
+       
+       function objToStrUrlEncode(obj) {
+         const str = [];
+         for (var key in obj) {
+           if (obj.hasOwnProperty(key) && typeof obj[key] !== 'undefined') {
+             str.push(encodeURIComponent(key) + "=" + encodeURIComponent(obj[key]))                  
+           }
+         }
+         return str.join('&')
+       }
+    }
+</script>

@@ -1,0 +1,121 @@
+<link rel="stylesheet" href="{{ 'section-main-page.css' | asset_url }}" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="{{ 'component-rte.css' | asset_url }}" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="{{ 'component-accordion.css' | asset_url }}" media="print" onload="this.media='all'">
+
+<noscript>{{ 'section-main-page.css' | asset_url | stylesheet_tag }}</noscript>
+<noscript>{{ 'component-rte.css' | asset_url | stylesheet_tag }}</noscript>
+<noscript>{{ 'component-accordion.css' | asset_url | stylesheet_tag }}</noscript>
+
+<div class="page-width page-width--narrow">
+  {%- for block in section.blocks -%}
+    {%- case block.type -%}
+      {%- when 'title'-%}
+        <div class="SectionHeader center">
+          <h1 class="title uppercase h2">   {{ page.title | escape }}</h1>
+        </div>
+      {%- when 'content'-%}
+        <div class="rte PageContent">
+          {{ page.content }}
+        </div>
+      {%- when 'question' -%}
+        <div class="faq__accordion accordion">
+          <details>
+            <summary>
+              <div class="summary__title">
+                <h5 class="uppercase heading">
+                  {{ block.settings.title }}
+                </h5>
+              </div>
+               {% render 'icon-plus' %}
+               {% render 'icon-minus' %}
+            </summary>
+            <div class="accordion__content rte">
+              {{ block.settings.answer }}
+            </div>
+          </details>
+        </div>
+      {% when 'contact' %}
+       <div class="faq__contact">
+         <h3 class="heading uppercase title">
+          <span>{{ block.settings.title }}</span>
+        </h3>
+
+        {% if block.settings.text != blank %}
+          <div class="contact__text">
+            <span>{{ block.settings.text  }}</span>
+          </div>
+        {% endif %}
+       
+        {%- if block.settings.button_label != blank -%}
+          <a href="{{ block.settings.button_link }}" class="button button--secondary"{% if block.settings.button_link == blank %} aria-disabled="true"{% endif %}>{{ block.settings.button_label | escape }}</a>
+        {%- endif -%}
+      </div>
+    {%- endcase -%}
+  {%- endfor -%}
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.main-page.name",
+  "tag": "section",
+  "class": "main-page-section main-page-content",
+  "blocks": [
+    {
+      "type": "title",
+      "name": "Title",
+      "limit": 1
+    },
+    {
+      "type": "content",
+      "name": "Content",
+      "limit": 1
+    },
+    {
+      "type": "question",
+      "name": "Question",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Question",
+          "default": "Question"
+        },
+        {
+          "type": "richtext",
+          "id": "answer",
+          "label": "Answer",
+          "default": "<p>Answer</p>"
+        }
+      ]
+    },
+    {
+      "type": "contact",
+      "name": "Contact",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Contact"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text",
+          "default": "<p>Text</p>"
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Button label"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button link"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
