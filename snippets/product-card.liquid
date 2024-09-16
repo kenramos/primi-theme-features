@@ -118,7 +118,7 @@
         </h3>
       {%- endif -%}
       
-      {% render 'judgeme_widgets', widget_type: 'judgeme_preview_badge', jm_style: '', concierge_install: false, product: product_card_product %}
+      
       
       {% comment %} TODO: metafield {% endcomment %}
       <span class="caption-large light">{{ block.settings.description | escape }}</span>
@@ -169,6 +169,8 @@
               {% endif %}
           {%- endfor -%}
         {%- endfor -%}
+
+        {% render 'judgeme_widgets', widget_type: 'judgeme_preview_badge', jm_style: '', concierge_install: false, product: product_card_product %}
       </div>
     </div>
   </div>
