@@ -99,7 +99,10 @@ svg.icon.icon-close {
 
 .menu-drawer__inner-submenu .menu-drawer__menu.list-menu li {
 	font-family: "Apercu";
-	padding-left: 16px;
+
+	a {
+		padding: 1.1rem 4rem;
+	}
 }
 
 .no-js .menu-drawer__navigation {
