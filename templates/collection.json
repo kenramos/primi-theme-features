@@ -1,1 +1,67 @@
-{"sections":{"banner":{"type":"main-collection-banner","settings":{"show_collection_description":true,"show_collection_image":false}},"product-grid":{"type":"main-collection-product-grid","settings":{"products_per_page":16,"image_ratio":"adapt","show_secondary_image":true,"add_image_padding":false,"show_image_outline":true,"show_vendor":false,"show_rating":false,"enable_filtering":true,"enable_sorting":true,"collapse_on_larger_devices":false}},"rich_text_g6tTrV":{"type":"rich-text","blocks":{"heading_dDaK9T":{"type":"heading","settings":{"heading":"","heading_size":"h1"}},"text_6g7qW9":{"type":"text","settings":{"text":""}}},"block_order":["heading_dDaK9T","text_6g7qW9"],"settings":{"color_scheme":"background-1","full_width":true}}},"order":["banner","product-grid","rich_text_g6tTrV"]}
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
+{
+  "sections": {
+    "banner": {
+      "type": "main-collection-banner",
+      "settings": {
+        "show_collection_description": true,
+        "show_collection_image": false
+      }
+    },
+    "product-grid": {
+      "type": "main-collection-product-grid",
+      "settings": {
+        "products_per_page": 16,
+        "image_ratio": "adapt",
+        "span_full_width": true,
+        "show_secondary_image": true,
+        "add_image_padding": false,
+        "show_image_outline": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "enable_filtering": true,
+        "enable_sorting": true,
+        "collapse_on_larger_devices": false
+      }
+    },
+    "rich_text_g6tTrV": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_dDaK9T": {
+          "type": "heading",
+          "settings": {
+            "heading": "",
+            "heading_size": "h1"
+          }
+        },
+        "text_6g7qW9": {
+          "type": "text",
+          "settings": {
+            "text": ""
+          }
+        }
+      },
+      "block_order": [
+        "heading_dDaK9T",
+        "text_6g7qW9"
+      ],
+      "settings": {
+        "color_scheme": "background-1",
+        "full_width": true
+      }
+    }
+  },
+  "order": [
+    "banner",
+    "product-grid",
+    "rich_text_g6tTrV"
+  ]
+}
