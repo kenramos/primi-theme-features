@@ -30,7 +30,7 @@
         </div>
       </div>
     {%- else -%}
-      <div class="collection {% unless section.settings.span_full_width %} full-page-width {% endunless %} page-width">
+      <div class="collection {% if section.settings.span_full_width %} full-page-width {% endif %} page-width">
         <div class="loading-overlay gradient"></div>
 
         <ul id="product-grid" data-id="{{ section.id }}" class="
