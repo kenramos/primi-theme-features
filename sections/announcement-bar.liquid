@@ -42,9 +42,11 @@
             {%- endif -%}
                 <p class="announcement-bar__message h5" style="width: 100vw">
                   {{ block.settings.icon }} {{ block.settings.text | escape }}
+                  {% comment %} Remove arrow in announcement link
                   {%- if block.settings.link != blank -%}
                     {% render 'icon-arrow' %}
                   {%- endif -%}
+                  {% endcomment %}
                 </p>
             {%- if block.settings.link != blank -%}
               </a>
