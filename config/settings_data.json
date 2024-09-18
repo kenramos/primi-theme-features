@@ -32,6 +32,15 @@
       "announcement-bar": {
         "type": "announcement-bar",
         "blocks": {
+          "announcement_Q6DiUb": {
+            "type": "announcement",
+            "settings": {
+              "icon": "",
+              "text": "NEW ARRIVALS JUST LANDED",
+              "color_scheme": "background-1",
+              "link": "shopify:\/\/collections\/newarrivals"
+            }
+          },
           "130437b1-06fd-446b-9c97-6996f8e2b48d": {
             "type": "announcement",
             "settings": {
@@ -59,22 +68,13 @@
               "color_scheme": "background-1",
               "link": ""
             }
-          },
-          "announcement_Q6DiUb": {
-            "type": "announcement",
-            "settings": {
-              "icon": "",
-              "text": "NEW ARRIVALS JUST LANDED",
-              "color_scheme": "background-1",
-              "link": "shopify:\/\/collections\/newarrivals"
-            }
           }
         },
         "block_order": [
+          "announcement_Q6DiUb",
           "130437b1-06fd-446b-9c97-6996f8e2b48d",
           "announcement_hwxt38",
-          "announcement-bar-0",
-          "announcement_Q6DiUb"
+          "announcement-bar-0"
         ],
         "settings": {
           "enable_country_selector": false,
