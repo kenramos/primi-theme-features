@@ -38,7 +38,7 @@
               "icon": "",
               "text": "FREE EXPRESS SHIPPING OVER $150",
               "color_scheme": "background-1",
-              "link": ""
+              "link": "shopify:\/\/pages\/shipping"
             }
           },
           "announcement_hwxt38": {
@@ -46,7 +46,7 @@
             "settings": {
               "icon": "",
               "text": "USA & UK FLAT RATE EXPRESS SHIPPING",
-              "color_scheme": "accent-2",
+              "color_scheme": "background-1",
               "link": ""
             }
           },
