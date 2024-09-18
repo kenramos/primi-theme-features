@@ -64,7 +64,7 @@
             "type": "announcement",
             "settings": {
               "icon": "",
-              "text": "JUST LANDED NEW ARRIVALS",
+              "text": "NEW ARRIVALS JUST LANDED",
               "color_scheme": "background-1",
               "link": "shopify:\/\/collections\/newarrivals"
             }
