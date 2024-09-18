@@ -35,7 +35,7 @@
 {%- for block in section.blocks -%}
   {%- case block.type -%}
     {%- when 'announcement' -%}
-      <div id="announcement--{{ forloop.index0 }}" class="announcement color-{{ block.settings.color_scheme }} gradient" style="left:100%" role="region" aria-label="{{ 'sections.header.announcement' | t }}" {{ block.shopify_attributes }}>
+      <div id="announcement--{{ forloop.index0 }}" class="announcement color-{{ block.settings.color_scheme }} gradient" {%- unless forloop.index0 == 0 -%}style="position: absolute; left:100%" {%- endunless -%}role="region" aria-label="{{ 'sections.header.announcement' | t }}" {{ block.shopify_attributes }}>
         {%- if block.settings.text != blank -%}
             {%- if block.settings.link != blank -%}
               <a href="{{ block.settings.link }}" class="announcement-bar__link link link--text focus-inset animate-arrow">
