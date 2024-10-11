@@ -23,7 +23,7 @@
           "repeater": "{{ page.metafields.custom.size_guides.value }}",
           "settings": {
             "measurement_unit": "{{ block.repeater.unit.value }}",
-            "guide_table": "<",
+            "guide_table": "",
             "downloadable_image": "{{ block.repeater.image.value }}"
           }
         }
