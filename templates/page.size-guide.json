@@ -24,7 +24,7 @@
           "settings": {
             "measurement_unit": "{{ block.repeater.unit.value }}",
             "guide_table": "{{ block.repeater.table_single_line.value }}",
-            "table_html": "",
+            "table_html": "<p>{{ block.repeater.table_1 | metafield_tag }}</p>",
             "downloadable_image": "{{ block.repeater.image.value }}"
           }
         }
