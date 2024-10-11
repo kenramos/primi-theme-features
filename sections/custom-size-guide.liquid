@@ -54,8 +54,12 @@
     background-size: contain;
   }
 
-  .checkbox:checked ~ .switch-table {
-    background: url(./primi-size-guide.jpg);
+  #size-guide-switch:!checked ~ .switch-table {
+    display: none;
+  }
+
+  #size-guide-switch:!checked ~ .switch-table {
+    display: block;
   }
 {%- endstyle -%}
 
@@ -81,7 +85,7 @@
       {%- case block.type -%}
         {%- when 'size-guide'-%}
         <h3></h3>
-          <div class="switch-table">
+          <div class="switch-table" id="table--{{ forloop.index0 }}-{{ block.settings.measurement.unit }}">
             {{ block.settings.guide_table }}
             {{ block.settings.table_html }}
           </div>
