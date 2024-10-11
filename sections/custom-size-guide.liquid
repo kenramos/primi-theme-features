@@ -1,6 +1,126 @@
+{%- style -%}
+  h1 {
+    color: green;
+  }
+
+  /* toggle in label designing */
+  .toggle {
+    position: relative;
+    display: inline-block;
+    width: 100px;
+    height: 52px;
+    background-color: red;
+    border-radius: 30px;
+    border: 2px solid gray;
+  }
+
+  /* After slide changes */
+  .toggle:after {
+    content: "";
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: gray;
+    top: 1px;
+    left: 1px;
+    transition: all 0.5s;
+  }
+
+  /* Toggle text */
+  p {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+  }
+
+  /* Checkbox checked effect */
+  .checkbox:checked + .toggle::after {
+    left: 49px;
+  }
+
+  /* Checkbox checked toggle label bg color */
+  .checkbox:checked + .toggle {
+    background-color: green;
+  }
+
+  /* Checkbox vanished */
+  .checkbox {
+    display: none;
+  }
+
+  .switch-table {
+    width: 300px;
+    height: 500px;
+    /* background-color: aqua; */
+    border: 1px red solid;
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: contain;
+  }
+
+  .checkbox:checked ~ .switch-table {
+    background: url(./primi-size-guide.jpg);
+  }
+{%- endstyle -%}
+
+<div class="page-width">
+  <center>
+    <h2>{{  section.settings.title }}</h2>
+    <br /><br />
+
+    <input type="checkbox" id="switch" class="checkbox" />
+
+    <label for="switch" class="toggle">
+      <p>CM &nbsp;&nbsp; IN</p>
+    </label>
+
+    {%- for block in section.blocks -%}
+      {%- case block.type -%}
+        {%- when 'size-guide'-%}
+          <div class="switch-table">
+            <h3>{{ block.settings.measurement_unit }}</h3>
+            {{ block.settings.guide_table }}
+          </div>
+          {{ block.settings.downloadable_image | image_url: width: 600 | image_tag}}
+    {{  }}
+  </center>
+</div>
+
 {% schema %}
   {
-    "name": "Section name",
-    "settings": []
+    "name": "Size Guide",
+    "tag": "section",
+    "class": "page-size-guide",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title",
+        "default": "Size Guide"
+      }
+    ],
+    "blocks": [
+      {
+      "type": "size-guide",
+      "name": "Size Guide",
+      "settings": [
+        {
+          "type": "text",
+          "id": "measurement_unit",
+          "label": "Measurement Unit",
+        },
+        {
+          "type": "richtext",
+          "id": "guide_table",
+          "label": "Table",
+        },
+        {
+          "type": "image_picker",
+          "id": "downloadable_image",
+          "label": "Downloadable Image"
+        }
+      ]
+      }
+    ]
   }
 {% endschema %}
