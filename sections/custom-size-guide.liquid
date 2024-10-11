@@ -82,7 +82,8 @@
             {{ block.settings.guide_table }}
           </div>
           {{ block.settings.downloadable_image | image_url: width: 600 | image_tag}}
-    {{  }}
+        {% endcase %}
+      {% endfor %}
   </center>
 </div>
 
