@@ -77,8 +77,8 @@
     {%- for block in section.blocks -%}
       {%- case block.type -%}
         {%- when 'size-guide'-%}
+        <h3>{{ block.settings.measurement_unit }}</h3>
           <div class="switch-table">
-            <h3>{{ block.settings.measurement_unit }}</h3>
             {{ block.settings.guide_table }}
           </div>
           {{ block.settings.downloadable_image | image_url: width: 600 | image_tag}}
@@ -111,7 +111,7 @@
           "label": "Measurement Unit",
         },
         {
-          "type": "richtext",
+          "type": "inline_richtext",
           "id": "guide_table",
           "label": "Table",
         },
