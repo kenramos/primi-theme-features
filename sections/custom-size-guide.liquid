@@ -80,6 +80,7 @@
         <h3>{{ block.settings.measurement_unit }}</h3>
           <div class="switch-table">
             {{ block.settings.guide_table }}
+            {{ block.settings.table_html }}
           </div>
           {{ block.settings.downloadable_image | image_url: width: 600 | image_tag}}
         {% endcase %}
@@ -114,6 +115,11 @@
           "type": "text",
           "id": "guide_table",
           "label": "Table",
+        },
+        {
+          "type": "html",
+          "id": "table_html",
+          "label": "HTML for table display"
         },
         {
           "type": "image_picker",
