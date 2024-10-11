@@ -71,13 +71,20 @@
     <input type="checkbox" id="switch" class="checkbox" />
 
     <label for="switch" class="toggle">
-      <p>CM &nbsp;&nbsp; IN</p>
+      <p>
+        {%- for block in section.blocks -%}
+          {% case block.type %}
+            {% when 'size-guide' %}{{ block.settings.measurement_unit }}
+          {% endcase %}
+          {%- unless forloop.last -%}&nbsp;&nbsp;{%- endunless -%}
+        {%- endfor -%}
+      </p>
     </label>
 
     {%- for block in section.blocks -%}
       {%- case block.type -%}
         {%- when 'size-guide'-%}
-        <h3>{{ block.settings.measurement_unit }}</h3>
+        <h3></h3>
           <div class="switch-table">
             {{ block.settings.guide_table }}
             {{ block.settings.table_html }}
