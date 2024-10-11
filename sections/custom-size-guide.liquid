@@ -89,7 +89,9 @@
             {{ block.settings.guide_table }}
             {{ block.settings.table_html }}
           </div>
+        {% comment %}
           {{ block.settings.downloadable_image | image_url: width: 600 | image_tag}}
+        {% endcomment %}
         {% endcase %}
       {% endfor %}
   </center>
