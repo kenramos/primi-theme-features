@@ -3,7 +3,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 1rem 0;
+    margin: 2rem 0;
   }
   /* toggle in label designing */
   .toggle {
@@ -13,19 +13,19 @@
     height: 32px;
     background-color: red;
     border-radius: 30px;
-    border: 2px solid gray;
+    border: 2px solid #000000;
   }
 
   /* After slide changes */
   .toggle:after {
     content: "";
     position: absolute;
-    width: 40px;
+    width: 50%;
     height: 30px;
-    border-radius: 50%;
+    border-radius: 30px;
     background-color: gray;
-    top: 1px;
-    left: 1px;
+    top: -1px;
+    left: -1px;
     transition: all 0.5s;
   }
 
@@ -37,12 +37,12 @@
 
   /* Checkbox checked effect */
   .checkbox:checked + .toggle::after {
-    left: 49px;
+    left: 50%;
   }
 
   /* Checkbox checked toggle label bg color */
   .checkbox:checked + .toggle {
-    background-color: green;
+    background-color: #FFFFFF;
   }
 
   /* Checkbox vanished */
@@ -81,14 +81,14 @@
       <h3>{{  section.settings.title }}</h3>
       <input type="checkbox" id="size-guide-switch" class="checkbox" />
       <label for="size-guide-switch" class="toggle">
-        <p>
+        
           {%- for block in section.blocks -%}
             {% case block.type %}
-              {% when 'size-guide' %}{{ block.settings.measurement_unit }}
+              {% when 'size-guide' %}<p>{{ block.settings.measurement_unit }}</p>
             {% endcase %}
             {%- unless forloop.last -%}&nbsp;&nbsp;{%- endunless -%}
           {%- endfor -%}
-        </p>
+        
       </label>
     </div>
     {%- for block in section.blocks -%}
