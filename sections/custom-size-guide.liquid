@@ -1,10 +1,16 @@
 {%- style -%}
+  .size-guide-container .heading-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1rem 0;
+  }
   /* toggle in label designing */
   .toggle {
     position: relative;
     display: inline-block;
     width: 100px;
-    height: 52px;
+    height: 32px;
     background-color: red;
     border-radius: 30px;
     border: 2px solid gray;
@@ -15,7 +21,7 @@
     content: "";
     position: absolute;
     width: 50px;
-    height: 50px;
+    height: 30px;
     border-radius: 50%;
     background-color: gray;
     top: 1px;
@@ -71,7 +77,7 @@
 
 <div class="page-width">
   <center class="size-guide-container">
-    <div class="heading-container">
+    <div class="heading-container page-width--narrow">
       <h3>{{  section.settings.title }}</h3>
       <input type="checkbox" id="size-guide-switch" class="checkbox" />
       <label for="size-guide-switch" class="toggle">
