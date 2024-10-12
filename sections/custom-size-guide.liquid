@@ -50,6 +50,16 @@
     display: none;
   }
 
+  .labels {
+    display: flex;
+    justify-content: space-evenly;
+  }
+  
+  .labels p {
+      margin: 0;
+      padding: 0
+  }
+
   .switch-table {
     /*
     width: 300px;
@@ -86,7 +96,6 @@
             {% case block.type %}
               {% when 'size-guide' %}<p>{{ block.settings.measurement_unit }}</p>
             {% endcase %}
-            {%- unless forloop.last -%}&nbsp;&nbsp;{%- endunless -%}
           {%- endfor -%}
         </div>
       </label>
