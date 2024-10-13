@@ -13,9 +13,31 @@
       "type": "main-page",
       "settings": {
       }
+    },
+    "custom_size_guide_7prjR3": {
+      "type": "custom-size-guide",
+      "blocks": {
+        "size_guide_jVKerp": {
+          "type": "size-guide",
+          "repeater": "{{ page.metafields.custom.size_guides.value }}",
+          "settings": {
+            "measurement_unit": "{{ block.repeater.unit.value }}",
+            "guide_table": "{{ block.repeater.table_single_line.value }}",
+            "table_html": "",
+            "downloadable_image": "{{ block.repeater.image.value }}"
+          }
+        }
+      },
+      "block_order": [
+        "size_guide_jVKerp"
+      ],
+      "settings": {
+        "title": "General Size Guide"
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "custom_size_guide_7prjR3"
   ]
 }
