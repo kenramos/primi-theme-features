@@ -2,6 +2,7 @@
 {% endstyle %}
 
 <div class="page-width">
+  <h3>{{ section.settings.title }}</h3>
   <table>
     <thead>
       <tr>
@@ -32,7 +33,14 @@
     "name": "Size Guide Table",
     "tag": "section",
     "class": "size-guide-table",
-    "settings": [{}],
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title",
+        "default": "Size Guide"
+      }
+    ],
     "blocks": [
       {
         "type": "size-entry",
