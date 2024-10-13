@@ -1,0 +1,80 @@
+{% style %}
+{% endstyle %}
+
+<div class="page-width">
+  <table>
+    <thead>
+      <tr>
+        <td colspan="2">Primi Size</td>
+        <td>US</td>
+        <td>BUST</td>
+        <td>WAIST</td>
+        <td>HIP</td>
+      </tr>
+    </thead>
+    <tbody>
+    {% for block in section.blocks %}
+      <tr>
+        <td>{{ block.settings.size-label }}</td>
+        <td>{{ block.settings.size-guide }}</td>
+        <td>{{ block.settings.size-us }}</td>
+        <td>{{ block.settings.bust-size }}</td>
+        <td>{{ block.settings.waist-size }}</td>
+        <td>{{ block.settings.hip-size }}</td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+{% schema %}
+  {
+    "name": "Size Guide Table",
+    "tag": "section",
+    "class": "size-guide-table",
+    "settings": [{}],
+    "blocks": [
+      {
+        "type": "size-entry",
+        "name": "Size Entry",
+        "settings": [
+          {
+            "type": "text",
+            "id": "size-label",
+            "label": "Size Label",
+          },
+          {
+            "type": "text",
+            "id": "size-general",
+            "label": "Size (General))",
+          },
+          {
+            "type": "text",
+            "id": "size-us",
+            "label": "Size (US)",
+          },
+          {
+            "type": "text",
+            "id": "bust-size",
+            "label": "Bust Size",
+          },
+          {
+            "type": "text",
+            "id": "waist-size",
+            "label": "Waist Size",
+          },
+          {
+            "type": "text",
+            "id": "hip-size",
+            "label": "Hip Size",
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Size Guide Table"
+      }
+    ]
+  }
+{% endschema %}
