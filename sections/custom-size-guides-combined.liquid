@@ -1,0 +1,204 @@
+{%- style -%}
+  .size-guide-container .heading-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1rem 0;
+  }
+  /* toggle in label designing */
+  .toggle {
+    position: relative;
+    display: inline-block;
+    width: 80px;
+    height: 32px;
+    border-radius: 30px;
+    border: 2px solid #121212BF;
+  }
+
+  /* After slide changes */
+  .toggle:after {
+    content: "";
+    position: absolute;
+    width: 50%;
+    height: 30px;
+    border-radius: 30px;
+    background-color: #6D767A;
+    top: -1px;
+    left: 0;
+    transition: all 0.5s;
+  }
+
+  /* Toggle text 
+  p {
+    font-family: 'Apercu', sans-serif;
+    font-weight: bold;
+  }*/
+
+  /* Checkbox checked effect */
+  .checkbox:checked + .toggle::after {
+    left: 50%;
+  }
+
+  /* Checkbox checked toggle label bg color */
+  .checkbox:checked + .toggle {
+    background-color: #FFFFFF;
+  }
+
+  /* Checkbox vanished */
+  #size-guide-switch {
+    display: none;
+  }
+
+  .labels {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 1rem;
+  }
+  
+  .labels p {
+      margin: 0;
+      padding: 0
+  }
+
+  .switch-table {
+    margin: 2rem 0;
+    text-align: center;
+  }
+
+  #switch-table--0 {
+    display: none;
+  }
+
+  #size-guide-switch:checked ~ #switch-table--0 {
+    display: block;
+  }
+  #size-guide-switch:checked ~ #switch-table--1 {
+    display: none;
+  }
+  
+{%- endstyle -%}
+
+<div class="page-width">
+  <center class="size-guide-container">
+    <div class="heading-container page-width--narrow">
+      <h3>{{  section.settings.title }}</h3>
+      <input type="checkbox" id="size-guide-switch" class="checkbox" />
+      <label for="size-guide-switch" class="toggle">
+        <div class="labels">
+          {%- for block in section.blocks -%}
+            {% case block.type %}
+              {% when 'guide-table' %}<p>{{ block.settings.measurement_unit }}</p>
+            {% endcase %}
+          {%- endfor -%}
+        </div>
+      </label>
+    </div>
+    {%- for block in section.blocks -%}
+      {%- case block.type -%}
+        {%- when 'size-guide'-%}
+          <div class="switch-table" id="switch-table--{{ forloop.index0 }}">
+            {% comment %}
+              {{ block.settings.guide_table }}
+              {{ block.settings.table_html }}
+            {% endcomment %}
+          </div>
+        {% comment %}
+          {{ block.settings.downloadable_image | image_url: width: 600 | image_tag}}
+        {% endcomment %}
+        {% endcase %}
+      {% endfor %}
+
+      <table>
+        <thead>
+          <tr>
+            <td colspan="2">Primi Size</td>
+            <td>US</td>
+            <td>BUST</td>
+            <td>WAIST</td>
+            <td>HIP</td>
+          </tr>
+        </thead>
+        <tbody>
+        {% for block in section.blocks %}
+          <tr>
+            <td>{{ block.settings.size-label }}</td>
+            <td>{{ block.settings.size-general }}</td>
+            <td>{{ block.settings.size-us }}</td>
+            <td>{{ block.settings.bust-size }}</td>
+            <td>{{ block.settings.waist-size }}</td>
+            <td>{{ block.settings.hip-size }}</td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+  </center>
+</div>
+
+{% schema %}
+  {
+    "name": "Combined Size Guides",
+    "tag": "section",
+    "class": "combined-guides",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title",
+        "default": "Size Guide"
+      }
+    ],
+    "blocks": [
+      {
+      "type": "guide-table",
+      "name": "Size Guide",
+      "settings": [
+        {
+          "type": "text",
+          "id": "measurement_unit",
+          "label": "Measurement Unit",
+        },
+        {
+          "type": "text",
+          "id": "size-label",
+          "label": "Size Label",
+        },
+        {
+          "type": "text",
+          "id": "size-general",
+          "label": "Size (General)",
+        },
+        {
+          "type": "text",
+          "id": "size-us",
+          "label": "Size (US)",
+        },
+        {
+          "type": "text",
+          "id": "bust-size",
+          "label": "Bust Size",
+        },
+        {
+          "type": "text",
+          "id": "waist-size",
+          "label": "Waist Size",
+        },
+        {
+          "type": "text",
+          "id": "hip-size",
+          "label": "Hip Size",
+        },
+        {
+          "type": "image_picker",
+          "id": "downloadable_image",
+          "label": "Downloadable Image"
+        }
+      ]
+      }
+    ],
+    "presets": [
+    {
+      "name": "Combined Size Guides",
+    }
+  ]
+  }
+{% endschema %}
