@@ -9,7 +9,7 @@
         <td {%- if section.settings.span-2-cols -%}colspan="2"{%- endif -%}>{{ section.settings.header--col1 }}</td>
         {%- unless section.settings.span-2-cols -%}<td>{{ section.settings.header--col2 }}</td>{%- endunless -%}
         <td>{{ section.settings.header--col3 }}</td>
-        <td>{{ section.settings.header--header--col4 }}</td>
+        <td>{{ section.settings.header--col4 }}</td>
         <td>{{ section.settings.header--col5 }}</td>
         <td>{{ section.settings.header--col6 }}</td>
       </tr>
@@ -61,7 +61,7 @@
         "id": "header--col2",
         "label": "Header Column 2",
         "default": "General",
-        "info": "When Header 1 spans 2 columns, header 2 is automatically hidden."
+        "info": "Note: when Header 1 spans 2 columns, header 2 is automatically hidden."
       },
       {
         "type": "text",
