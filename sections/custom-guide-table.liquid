@@ -6,11 +6,12 @@
   <table>
     <thead>
       <tr>
-        <td colspan="2">Primi Size</td>
-        <td>US</td>
-        <td>BUST</td>
-        <td>WAIST</td>
-        <td>HIP</td>
+        <td {%- if section.settings.span-2-cols -%}colspan="2"{%- endif -%}>{{ section.settings.header--col1 }}</td>
+        {%- unless section.settings.span-2-cols -%}<td>{{ section.settings.header--col2 }}</td>{%- endunless -%}
+        <td>{{ section.settings.header--col3 }}</td>
+        <td>{{ section.settings.header--header--col4 }}</td>
+        <td>{{ section.settings.header--col5 }}</td>
+        <td>{{ section.settings.header--col6 }}</td>
       </tr>
     </thead>
     <tbody>
@@ -39,6 +40,52 @@
         "id": "title",
         "label": "Title",
         "default": "Size Guide"
+      },
+      {
+        "type": "header",
+        "content": "Table Headers"
+      },
+      {
+        "type": "text",
+        "id": "header--col1",
+        "label": "Header Column 1",
+        "default": "PRIMI Size"
+      },
+      {
+        "type": "checkbox",
+        "id": "span-2-cols",
+        "label": "Make first header span 2 columns"
+      },
+      {
+        "type": "text",
+        "id": "header--col2",
+        "label": "Header Column 2",
+        "default": "General",
+        "info": "When Header 1 spans 2 columns, header 2 is automatically hidden."
+      },
+      {
+        "type": "text",
+        "id": "header--col3",
+        "label": "Header Column 3",
+        "default": "US Size"
+      },
+      {
+        "type": "text",
+        "id": "header--col4",
+        "label": "Header Column 4",
+        "default": "BUST"
+      },
+      {
+        "type": "text",
+        "id": "header--col5",
+        "label": "Header Column 5",
+        "default": "WAIST"
+      },
+      {
+        "type": "text",
+        "id": "header--col6",
+        "label": "Header Column 6",
+        "default": "HIP"
       }
     ],
     "blocks": [
