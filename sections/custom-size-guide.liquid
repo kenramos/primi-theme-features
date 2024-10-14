@@ -89,18 +89,20 @@
     display: none;
   } */
 
-  #size-guide-switch:checked   #switch-image--0 {
+  #size-guide-switch:checked ~ #switch-image--0 {
     display: block;
   }
-  #size-guide-switch:checked   #switch-image--1 {
+  #size-guide-switch:checked ~ #switch-image--1 {
     display: none;
   }
   
 {%- endstyle -%}
 
 <div class="page-width">
-  <center class="size-guide-container">
+  <center class="size-guide-container page-width--narrow">
+    {% comment %}
     <div class="heading-container page-width--narrow">
+    {% endcomment %}
       <h3>{{  section.settings.title }}</h3>
       <input type="checkbox" id="size-guide-switch" class="checkbox" />
       <label for="size-guide-switch" class="toggle">
@@ -112,7 +114,9 @@
           {%- endfor -%}
         </div>
       </label>
+    {% comment %}
     </div>
+    {% endcomment %}
     {%- for block in section.blocks -%}
       {%- case block.type -%}
         {%- when 'size-guide'-%}
