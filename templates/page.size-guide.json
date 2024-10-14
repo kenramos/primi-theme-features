@@ -55,7 +55,14 @@
         "size_entry_CREjik"
       ],
       "settings": {
-        "title": "Size Guide (Centimeters)"
+        "title": "Size Guide (Centimeters)",
+        "header--col1": "PRIMI Size",
+        "span-2-cols": true,
+        "header--col2": "General",
+        "header--col3": "US Size",
+        "header--col4": "BUST",
+        "header--col5": "WAIST",
+        "header--col6": "HIP"
       }
     }
   },
