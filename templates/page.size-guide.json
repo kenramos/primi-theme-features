@@ -30,6 +30,7 @@
       "block_order": [
         "size_guide_jVKerp"
       ],
+      "disabled": true,
       "settings": {
         "title": "General Size Guide"
       }
