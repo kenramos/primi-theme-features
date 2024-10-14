@@ -13,11 +13,8 @@
      <input type="checkbox" id="size-guide-switch" class="checkbox" />
       <label for="size-guide-switch" class="toggle">
         <div class="labels">
-          
-            {% assign measurement_units = section.blocks.settings | map: 'unit' | uniq %}
-            {%- for unit in measurement_units -%}
-              <p>{{ unit }}</p>
-            {%- endfor -%}
+          <p>CM</p>
+          <p>IN</p>
         </div>
       </label>
   <h3>{{ section.settings.title }}</h3>
