@@ -41,6 +41,7 @@
           "type": "size-entry",
           "repeater": "{{ page.metafields.custom.size_in_cm.value }}",
           "settings": {
+            "unit": "",
             "size-label": "{{ block.repeater.size_label.value }}",
             "size-general": "{{ block.repeater.size_general.value }}",
             "size-us": "{{ block.repeater.size_us.value }}",
@@ -72,6 +73,7 @@
           "type": "size-entry",
           "repeater": "{{ page.metafields.custom.size_in_in.value }}",
           "settings": {
+            "unit": "{{ block.repeater.unit.value }}",
             "size-label": "{{ block.repeater.size_label.value }}",
             "size-general": "{{ block.repeater.size_general.value }}",
             "size-us": "{{ block.repeater.size_us.value }}",
