@@ -89,16 +89,17 @@
     display: none;
   }
 
-  #size-guide-switch:checked .guide-inches {
+  #size-guide-switch:checked ~ table .guide-inches {
     display: block;
   }
-  #size-guide-switch:checked .guide-cm {
+  #size-guide-switch:checked ~ table .guide-cm {
     display: none;
   }
 {% endstyle %}
 
 <div class="page-width page-width--narrow">
    <center class="size-guide-container">
+     <h3>{{ section.settings.title }}</h3>
      <input type="checkbox" id="size-guide-switch" class="checkbox" />
       <label for="size-guide-switch" class="toggle">
         <div class="labels">
@@ -106,7 +107,7 @@
           <p>IN</p>
         </div>
       </label>
-  <h3>{{ section.settings.title }}</h3>
+
     <table>
       <thead>
         <tr>
