@@ -34,10 +34,34 @@
       "settings": {
         "title": "General Size Guide"
       }
+    },
+    "custom_guide_table_ndy3pp": {
+      "type": "custom-guide-table",
+      "blocks": {
+        "size_entry_CREjik": {
+          "type": "size-entry",
+          "repeater": "{{ page.metafields.custom.size_in_cm.value }}",
+          "settings": {
+            "size-label": "{{ block.repeater.size_label.value }}",
+            "size-general": "{{ block.repeater.size_general.value }}",
+            "size-us": "{{ block.repeater.size_us.value }}",
+            "bust-size": "{{ block.repeater.bust_size.value }}",
+            "waist-size": "{{ block.repeater.waist_size.value }}",
+            "hip-size": "{{ block.repeater.hip_size.value }}"
+          }
+        }
+      },
+      "block_order": [
+        "size_entry_CREjik"
+      ],
+      "settings": {
+        "title": "Size Guide (Centimeters)"
+      }
     }
   },
   "order": [
     "main",
-    "custom_size_guide_7prjR3"
+    "custom_size_guide_7prjR3",
+    "custom_guide_table_ndy3pp"
   ]
 }
