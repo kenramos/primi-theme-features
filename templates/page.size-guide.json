@@ -22,8 +22,8 @@
           "repeater": "{{ page.metafields.custom.size_guides.value }}",
           "settings": {
             "measurement_unit": "{{ block.repeater.unit.value }}",
-            "guide_table": "{{ block.repeater.table_single_line.value }}",
-            "table_html": "",
+            "guide_table": "",
+            "table_html": "<p>{{ block.repeater.table_1 | metafield_tag }}</p>",
             "downloadable_image": "{{ block.repeater.image.value }}"
           }
         }
