@@ -1,34 +1,41 @@
 {% style %}
+  .size-guide-container {
+    margin: auto;
+  }
+
+  .size-guide-container table {
+    text-align: center;
+  }
 {% endstyle %}
 
 <div class="page-width page-width--narrow">
    <center class="size-guide-container">
   <h3>{{ section.settings.title }}</h3>
-  <table>
-    <thead>
-      <tr>
-        <td {% if section.settings.span-2-cols %}colspan="2"{% endif %}>{{ section.settings.header--col1 }}</td>
-        {%- unless section.settings.span-2-cols -%}<td>{{ section.settings.header--col2 }}</td>{%- endunless -%}
-        <td>{{ section.settings.header--col3 }}</td>
-        <td>{{ section.settings.header--col4 }}</td>
-        <td>{{ section.settings.header--col5 }}</td>
-        <td>{{ section.settings.header--col6 }}</td>
-      </tr>
-    </thead>
-    <tbody>
-    {% for block in section.blocks %}
-      <tr>
-        <td>{{ block.settings.size-label }}</td>
-        <td>{{ block.settings.size-general }}</td>
-        <td>{{ block.settings.size-us }}</td>
-        <td>{{ block.settings.bust-size }}</td>
-        <td>{{ block.settings.waist-size }}</td>
-        <td>{{ block.settings.hip-size }}</td>
-      </tr>
-    {% endfor %}
-    </tbody>
-  </table>
-   </center>
+    <table>
+      <thead>
+        <tr>
+          <td {% if section.settings.span-2-cols %}colspan="2"{% endif %}>{{ section.settings.header--col1 }}</td>
+          {%- unless section.settings.span-2-cols -%}<td>{{ section.settings.header--col2 }}</td>{%- endunless -%}
+          <td>{{ section.settings.header--col3 }}</td>
+          <td>{{ section.settings.header--col4 }}</td>
+          <td>{{ section.settings.header--col5 }}</td>
+          <td>{{ section.settings.header--col6 }}</td>
+        </tr>
+      </thead>
+      <tbody>
+      {% for block in section.blocks %}
+        <tr>
+          <td>{{ block.settings.size-label }}</td>
+          <td>{{ block.settings.size-general }}</td>
+          <td>{{ block.settings.size-us }}</td>
+          <td>{{ block.settings.bust-size }}</td>
+          <td>{{ block.settings.waist-size }}</td>
+          <td>{{ block.settings.hip-size }}</td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </center>
 </div>
 
 {% schema %}
