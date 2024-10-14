@@ -31,6 +31,7 @@
       "block_order": [
         "size_guide_jVKerp"
       ],
+      "disabled": true,
       "settings": {
         "title": "General Size Guide"
       }
@@ -64,11 +65,42 @@
         "header--col5": "WAIST",
         "header--col6": "HIP"
       }
+    },
+    "custom_guide_table_VPg83V": {
+      "type": "custom-guide-table",
+      "blocks": {
+        "size_entry_cMw6JE": {
+          "type": "size-entry",
+          "repeater": "{{ page.metafields.custom.size_in_in.value }}",
+          "settings": {
+            "size-label": "{{ block.repeater.size_label.value }}",
+            "size-general": "{{ block.repeater.size_general.value }}",
+            "size-us": "{{ block.repeater.size_us.value }}",
+            "bust-size": "{{ block.repeater.bust_size.value }}",
+            "waist-size": "{{ block.repeater.waist_size.value }}",
+            "hip-size": "{{ block.repeater.hip_size.value }}"
+          }
+        }
+      },
+      "block_order": [
+        "size_entry_cMw6JE"
+      ],
+      "settings": {
+        "title": "Size Guide",
+        "header--col1": "PRIMI Size",
+        "span-2-cols": false,
+        "header--col2": "General",
+        "header--col3": "US Size",
+        "header--col4": "BUST",
+        "header--col5": "WAIST",
+        "header--col6": "HIP"
+      }
     }
   },
   "order": [
     "main",
     "custom_size_guide_7prjR3",
-    "custom_guide_table_ndy3pp"
+    "custom_guide_table_ndy3pp",
+    "custom_guide_table_VPg83V"
   ]
 }
