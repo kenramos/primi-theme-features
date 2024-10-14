@@ -22,8 +22,7 @@
           "repeater": "{{ page.metafields.custom.size_guides.value }}",
           "settings": {
             "measurement_unit": "{{ block.repeater.unit.value }}",
-            "guide_table": "",
-            "table_html": "<p>{{ block.repeater.table_1 | metafield_tag }}</p>",
+            "guide_table": "{{ block.repeater.table_single_line.value }}",
             "downloadable_image": "{{ block.repeater.image.value }}"
           }
         }
@@ -31,7 +30,6 @@
       "block_order": [
         "size_guide_jVKerp"
       ],
-      "disabled": true,
       "settings": {
         "title": "General Size Guide"
       }
@@ -55,6 +53,7 @@
       "block_order": [
         "size_entry_CREjik"
       ],
+      "disabled": true,
       "settings": {
         "title": "Size Guide (Centimeters)",
         "header--col1": "PRIMI Size",
@@ -86,7 +85,7 @@
         "size_entry_cMw6JE"
       ],
       "settings": {
-        "title": "Size Guide",
+        "title": "Size Guide (Inches)",
         "header--col1": "PRIMI Size",
         "span-2-cols": false,
         "header--col2": "General",
