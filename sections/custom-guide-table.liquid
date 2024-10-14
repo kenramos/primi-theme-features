@@ -22,8 +22,10 @@
           <td>{{ section.settings.header--col6 }}</td>
         </tr>
       </thead>
-      <tbody>
-      {% for block in section.blocks %}
+      {%- for block in section.blocks -%}
+        {%- case block.settings.unit -%}
+          {%- when 'IN'-%}
+      <tbody class="guide-inches">
         <tr>
           <td>{{ block.settings.size-label }}</td>
           <td>{{ block.settings.size-general }}</td>
@@ -32,8 +34,20 @@
           <td>{{ block.settings.waist-size }}</td>
           <td>{{ block.settings.hip-size }}</td>
         </tr>
-      {% endfor %}
       </tbody>
+          {%- when 'CM'-%}
+          <tbody class="guide-cm">
+        <tr>
+          <td>{{ block.settings.size-label }}</td>
+          <td>{{ block.settings.size-general }}</td>
+          <td>{{ block.settings.size-us }}</td>
+          <td>{{ block.settings.bust-size }}</td>
+          <td>{{ block.settings.waist-size }}</td>
+          <td>{{ block.settings.hip-size }}</td>
+        </tr>
+      </tbody>
+        {%- endcase -%}
+      {%- endfor -%}
     </table>
   </center>
 </div>
