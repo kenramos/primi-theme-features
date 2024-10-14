@@ -81,10 +81,36 @@
             "waist-size": "{{ block.repeater.waist_size.value }}",
             "hip-size": "{{ block.repeater.hip_size.value }}"
           }
+        },
+        "size_entry_M9kmdE": {
+          "type": "size-entry",
+          "settings": {
+            "unit": "CM",
+            "size-label": "XS",
+            "size-general": "6",
+            "size-us": "2-4",
+            "bust-size": "80 - 85",
+            "waist-size": "63.5 - 68.5",
+            "hip-size": "89 - 94"
+          }
+        },
+        "size_entry_edAFBH": {
+          "type": "size-entry",
+          "settings": {
+            "unit": "CM",
+            "size-label": "S",
+            "size-general": "8",
+            "size-us": "4-6",
+            "bust-size": "85 - 90",
+            "waist-size": "68.5 - 73.5",
+            "hip-size": "94 - 99"
+          }
         }
       },
       "block_order": [
-        "size_entry_cMw6JE"
+        "size_entry_cMw6JE",
+        "size_entry_M9kmdE",
+        "size_entry_edAFBH"
       ],
       "settings": {
         "title": "Size Guide (Inches)",
