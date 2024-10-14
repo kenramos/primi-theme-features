@@ -6,7 +6,7 @@
   <table>
     <thead>
       <tr>
-        <td {%- if section.settings.span-2-cols -%}colspan="2"{%- endif -%}>{{ section.settings.header--col1 }}</td>
+        <td {% if section.settings.span-2-cols %}colspan="2"{% endif %}>{{ section.settings.header--col1 }}</td>
         {%- unless section.settings.span-2-cols -%}<td>{{ section.settings.header--col2 }}</td>{%- endunless -%}
         <td>{{ section.settings.header--col3 }}</td>
         <td>{{ section.settings.header--col4 }}</td>
