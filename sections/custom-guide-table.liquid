@@ -10,6 +10,17 @@
 
 <div class="page-width page-width--narrow">
    <center class="size-guide-container">
+     <input type="checkbox" id="size-guide-switch" class="checkbox" />
+      <label for="size-guide-switch" class="toggle">
+        <div class="labels">
+          {%- for block in section.blocks -%}
+            {% assign measurement_units = block.settings.unit | split:'' | uniq %}
+            {%- for unit in measurement_units -%}
+              <p>{{ unit }}</p>
+            {%- endfor -%}
+          {%- endfor -%}
+        </div>
+      </label>
   <h3>{{ section.settings.title }}</h3>
     <table>
       <thead>
