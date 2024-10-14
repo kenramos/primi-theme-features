@@ -14,7 +14,7 @@
       <label for="size-guide-switch" class="toggle">
         <div class="labels">
           
-            {% assign measurement_units = section.blocks | map: 'unit' | uniq %}
+            {% assign measurement_units = section.blocks.settings | map: 'unit' | uniq %}
             {%- for unit in measurement_units -%}
               <p>{{ unit }}</p>
             {%- endfor -%}
