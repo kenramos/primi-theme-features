@@ -127,9 +127,11 @@
             {{ block.settings.guide_table }}
           </div>
           <a href={{ block.settings.downloadable_image | image_url }}>Download size guide here</a>
+        {% comment %}
           <div class="switch-table" id="switch-image--{{ forloop.index0 }}">
             {{ block.settings.downloadable_image | image_url: width: 600 | image_tag}}
           </div>
+        {% endcomment %}
         {% endcase %}
       {% endfor %}
   </center>
