@@ -84,6 +84,17 @@
   #size-guide-switch:checked ~ #switch-table--1 {
     display: none;
   }
+
+  #switch-image--0 {
+    display: none;
+  }
+
+  #size-guide-switch:checked ~ #switch-image--0 {
+    display: block;
+  }
+  #size-guide-switch:checked ~ #switch-image--1 {
+    display: none;
+  }
   
 {%- endstyle -%}
 
@@ -111,7 +122,9 @@
           </div>
         {% comment %}
         {% endcomment %}
-          {{ block.settings.downloadable_image | image_url: width: 600 | image_tag}}
+          <div class="switch-table" id="switch-image--{{ forloop.index0 }}">
+            {{ block.settings.downloadable_image | image_url: width: 600 | image_tag}}
+          </div>
         {% endcase %}
       {% endfor %}
   </center>
