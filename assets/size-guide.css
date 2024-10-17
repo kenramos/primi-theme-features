@@ -1,4 +1,4 @@
-center.size-guide-container {
+.size-guide-container {
   display: grid;
   grid-template-areas:
       "title switch"
@@ -11,9 +11,9 @@ center.size-guide-container {
   justify-self: flex-start;
 }
 
-.size-guide-container {
+/* .size-guide-container {
   margin: auto;
-}
+} */
 
 .toggle {
   position: relative;
