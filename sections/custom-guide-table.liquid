@@ -121,8 +121,8 @@
       </thead>
       <tbody>
       {%- for block in section.blocks -%}
-        {%- case block.settings.unit -%}
-          {%- when 'IN'-%}
+        {%- case block.settings.unit | slice: 0, 2 -%}
+          {%- when 'in'-%}
         <tr class="guide-inches">
           <td>{{ block.settings.size-label }}</td>
           <td>{{ block.settings.size-general }}</td>
@@ -132,7 +132,7 @@
           <td>{{ block.settings.hip-size }}</td>
         </tr>
       
-          {%- when 'CM'-%}
+          {%- when 'cm'-%}
         <tr class="guide-cm">
           <td>{{ block.settings.size-label }}</td>
           <td>{{ block.settings.size-general }}</td>
