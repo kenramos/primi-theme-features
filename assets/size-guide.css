@@ -91,6 +91,7 @@ center.size-guide-container {
 
 .size-guide thead {
   border-bottom: 2px solid #121212BF;
+  font-weight: 700;
 }
 
 .size-guide tbody tr:not(:last-of-type) {
