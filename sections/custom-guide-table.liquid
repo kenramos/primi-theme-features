@@ -1,15 +1,31 @@
 {% style %}
+  label.toggle {
+
+  }
+  
+  .size-guide {
+    width: 100%;
+    padding: 2rem;
+    grid-area: table;
+    text-align: center;
+  }
+  
+  center.size-guide-container {
+    display: grid;
+    grid-template-areas:
+        "title switch"
+        "table table";
+    align-items: center;
+  }
+  
+  .size-guide-container h3 {
+    grid-area: title;
+    justify-self: flex-start;
+  }
   .size-guide-container {
     margin: auto;
   }
 
-  .size-guide-container table {
-    text-align: center;
-  }
-
-    .size-guide-container {
-    margin: auto;
-  }
   .size-guide-container .heading-container {
     display: flex;
     justify-content: space-between;
@@ -19,7 +35,9 @@
   /* toggle in label designing */
   .toggle {
     position: relative;
-    display: inline-block;
+    /* display: inline-block; */
+    grid-area: switch;
+    justify-self: end;
     width: 80px;
     height: 32px;
     border-radius: 30px;
@@ -74,15 +92,6 @@
   .switch-table {
     margin: 2rem 0;
     text-align: center;
-    /*
-    width: 300px;
-    height: 500px;
-    background-color: aqua; 
-    border: 1px red solid;
-    background-repeat: no-repeat;
-    background-position: top center;
-    background-size: contain;
-    */
   }
 
   #size-guide-switch ~ table .guide-cm {
@@ -108,7 +117,7 @@
         </div>
       </label>
 
-    <table>
+    <table class="size-guide">
       <thead>
         <tr>
           <td {% if section.settings.span-2-cols %}colspan="2"{% endif %}>{{ section.settings.header--col1 }}</td>
