@@ -1,0 +1,111 @@
+center.size-guide-container {
+  display: grid;
+  grid-template-areas:
+      "title switch"
+      "table table";
+  align-items: center;
+}
+
+.size-guide-container h3 {
+  grid-area: title;
+  justify-self: flex-start;
+}
+
+.size-guide-container {
+  margin: auto;
+}
+
+.toggle {
+  position: relative;
+  /* display: inline-block; */
+  grid-area: switch;
+  justify-self: end;
+  width: 80px;
+  height: 32px;
+  border-radius: 30px;
+  border: 2px solid #121212BF;
+}
+
+/* After toggle changes */
+.toggle:after {
+  content: "";
+  position: absolute;
+  width: 50%;
+  height: 30px;
+  border-radius: 30px;
+  background-color: #6D767A;
+  top: -1px;
+  left: 0;
+  transition: all 0.5s;
+}
+
+/* Checkbox checked effect */
+.checkbox:checked + .toggle::after {
+  left: 50%;
+}
+
+/* Checkbox checked toggle label bg color */
+.checkbox:checked + .toggle {
+  background-color: #FFFFFF;
+}
+
+/* Checkbox vanished */
+#size-guide-switch {
+  display: none;
+}
+
+.labels {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 1rem;
+}
+
+.labels p {
+    margin: 0;
+    padding: 0
+}
+
+#size-guide-switch ~ .table-container .guide-cm {
+  display: none;
+}
+
+#size-guide-switch:checked ~ .table-container .guide-cm {
+  display: table-row
+}
+#size-guide-switch:checked ~ .table-container .guide-inches {
+  display: none;
+}
+
+.table-container {
+  width: 100%;
+  padding: 1rem;
+  grid-area: table;
+  background: #DEDEDE;
+  border-radius: 25px;
+}
+
+.size-guide {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.size-guide thead {
+  border-bottom: 2px solid #121212BF;
+}
+
+.size-guide tbody tr:not(:last-of-type) {
+  border-bottom: 1px solid darkgrey;
+}
+
+.size-guide td {
+  padding: 8px;
+}
+
+@media screen and (min-width: 768px) {
+  .table-container {
+    padding: 2.5rem;
+    text-align: center;
+    max-width: 80%;
+    margin: 1rem auto;
+  }
+}
