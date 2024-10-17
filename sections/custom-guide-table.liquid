@@ -89,19 +89,19 @@
       padding: 0
   }
 
-  .switch-table {
+  /* .switch-table {
     margin: 2rem 0;
     text-align: center;
-  }
+  } */
 
-  #size-guide-switch ~ table .guide-cm {
+  #size-guide-switch ~ table-container .guide-cm {
     display: none;
   }
 
-  #size-guide-switch:checked ~ table .guide-cm {
+  #size-guide-switch:checked ~ table-container .guide-cm {
     display: table-row
   }
-  #size-guide-switch:checked ~ table .guide-inches {
+  #size-guide-switch:checked ~ table-container .guide-inches {
     display: none;
   }
 {% endstyle %}
@@ -116,7 +116,7 @@
           <p>IN</p>
         </div>
       </label>
-
+    <div class="table-container">
     <table class="size-guide">
       <thead>
         <tr>
@@ -155,6 +155,7 @@
       {%- endfor -%}
       </tbody>
     </table>
+    </div>
   </center>
 </div>
 
