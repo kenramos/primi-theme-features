@@ -1,11 +1,4 @@
 {% style %}
-  .table-container {
-    width: 100%;
-    padding: 2rem;
-    grid-area: table;
-    text-align: center;
-  }
-  
   center.size-guide-container {
     display: grid;
     grid-template-areas:
@@ -18,17 +11,11 @@
     grid-area: title;
     justify-self: flex-start;
   }
+  
   .size-guide-container {
     margin: auto;
   }
-
-  .size-guide-container .heading-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 1rem 0;
-  }
-  /* toggle in label designing */
+  
   .toggle {
     position: relative;
     /* display: inline-block; */
@@ -40,7 +27,7 @@
     border: 2px solid #121212BF;
   }
 
-  /* After slide changes */
+  /* After toggle changes */
   .toggle:after {
     content: "";
     position: absolute;
@@ -52,12 +39,6 @@
     left: 0;
     transition: all 0.5s;
   }
-
-  /* Toggle text 
-  p {
-    font-family: 'Apercu', sans-serif;
-    font-weight: bold;
-  }*/
 
   /* Checkbox checked effect */
   .checkbox:checked + .toggle::after {
@@ -85,20 +66,47 @@
       padding: 0
   }
 
-  /* .switch-table {
-    margin: 2rem 0;
-    text-align: center;
-  } */
-
-  #size-guide-switch ~ table-container .guide-cm {
+  #size-guide-switch ~ .table-container .guide-cm {
     display: none;
   }
 
-  #size-guide-switch:checked ~ table-container .guide-cm {
+  #size-guide-switch:checked ~ .table-container .guide-cm {
     display: table-row
   }
-  #size-guide-switch:checked ~ table-container .guide-inches {
+  #size-guide-switch:checked ~ .table-container .guide-inches {
     display: none;
+  }
+
+  .table-container {
+    width: 100%;
+    padding: 2.5rem;
+    grid-area: table;
+    background: #DEDEDE;
+    border-radius: 25px;
+  }
+
+  .size-guide {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .size-guide thead {
+    border-bottom: 2px solid #121212BF;
+  }
+
+  .size-guide tbody tr:not(:last-of-type) {
+    border-bottom: 1px solid darkgrey;
+  }
+
+  .size-guide td {
+    padding: 8px;
+  }
+
+  @media screen and (min-width: 768px) {
+    .table-container {
+      padding: 1rem;
+      text-align: center;
+    }
   }
 {% endstyle %}
 
