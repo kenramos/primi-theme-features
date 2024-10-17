@@ -72,7 +72,7 @@
       "blocks": {
         "size_entry_cMw6JE": {
           "type": "size-entry",
-          "repeater": "{{ page.metafields.custom.size_in_in.value }}",
+          "repeater": "{{ page.metafields.custom.new_size_guide.value }}",
           "settings": {
             "unit": "{{ block.repeater.unit.value }}",
             "size-label": "{{ block.repeater.size_label.value }}",
@@ -113,10 +113,42 @@
         "size_entry_M9kmdE",
         "size_entry_edAFBH"
       ],
+      "disabled": true,
       "settings": {
         "title": "Size Guide (Inches)",
         "header--col1": "PRIMI Size",
         "span-2-cols": false,
+        "header--col2": "General",
+        "header--col3": "US Size",
+        "header--col4": "BUST",
+        "header--col5": "WAIST",
+        "header--col6": "HIP"
+      }
+    },
+    "custom_guide_table_LG4Ri9": {
+      "type": "custom-guide-table",
+      "blocks": {
+        "size_entry_pjFN99": {
+          "type": "size-entry",
+          "repeater": "{{ page.metafields.custom.new_size_guide.value }}",
+          "settings": {
+            "unit": "{{ block.repeater.unit.value }}",
+            "size-label": "{{ block.repeater.size_label.value }}",
+            "size-general": "{{ block.repeater.size_general.value }}",
+            "size-us": "{{ block.repeater.size_us.value }}",
+            "bust-size": "{{ block.repeater.bust_size.value }}",
+            "waist-size": "{{ block.repeater.waist_size.value }}",
+            "hip-size": "{{ block.repeater.hip_size.value }}"
+          }
+        }
+      },
+      "block_order": [
+        "size_entry_pjFN99"
+      ],
+      "settings": {
+        "title": "Size Guide",
+        "header--col1": "PRIMI Size",
+        "span-2-cols": true,
         "header--col2": "General",
         "header--col3": "US Size",
         "header--col4": "BUST",
@@ -129,6 +161,7 @@
     "main",
     "custom_size_guide_7prjR3",
     "custom_guide_table_ndy3pp",
-    "custom_guide_table_VPg83V"
+    "custom_guide_table_VPg83V",
+    "custom_guide_table_LG4Ri9"
   ]
 }
