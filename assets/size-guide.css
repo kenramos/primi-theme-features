@@ -98,7 +98,7 @@ center.size-guide-container {
   border-bottom: 1px solid darkgrey;
 }
 
-.size-guide td {
+.size-guide tbody td {
   padding: 8px;
 }
 
