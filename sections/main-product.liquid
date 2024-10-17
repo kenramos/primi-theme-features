@@ -602,7 +602,9 @@
       <div role="dialog" aria-label="{{ block.settings.text }}" aria-modal="true" class="product-popup-modal__content" tabindex="-1">
         <button id="ModalClose-{{ block.id }}" type="button" class="product-popup-modal__toggle" aria-label="{{ 'accessibility.close' | t }}">{% render 'icon-close' %}</button>
         <div class="product-popup-modal__content-info">
+          {% unless block.settings.hide_title %}
           <h1 class="h2">{{ block.settings.page.title }}</h1>
+          {% endunless %}
           {{ block.settings.page.content }}
         </div>
       </div>
@@ -998,6 +1000,12 @@
           "id": "page",
           "type": "page",
           "label": "t:sections.main-product.blocks.popup.settings.page.label"
+        },
+        {
+          "type": "checkbox",
+          "id": "hide_title",
+          "label": "Hide Page Title",
+          "default": false
         }
       ]
     },
