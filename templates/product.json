@@ -34,7 +34,8 @@
           "settings": {
             "subtext": "",
             "text": "See our size guide",
-            "page": "size-guide-2024"
+            "page": "size-guide-2024",
+            "hide_title": true
           }
         },
         "variant_picker": {
