@@ -155,6 +155,33 @@
         "header--col5": "WAIST",
         "header--col6": "HIP"
       }
+    },
+    "image_with_text_9hJHfr": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_peHADA": {
+          "type": "heading",
+          "settings": {
+            "heading": "Measuring Guide"
+          }
+        },
+        "text_inQfcA": {
+          "type": "text",
+          "settings": {
+            "text": "<ul><li>Bust: Measure around your chest at the fullest part of your bust</li><li>Waist: Measure around the smallest part of your waistline. Above your navel and below your rib cage.</li><li>Hips: Measure the fullest part of your bottom (20cm down from the waistline) standing with your feet together.</li></ul>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_peHADA",
+        "text_inQfcA"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/measure-guide.jpg",
+        "height": "adapt",
+        "color_scheme": "background-1",
+        "layout": "text_first"
+      }
     }
   },
   "order": [
@@ -162,6 +189,7 @@
     "custom_size_guide_7prjR3",
     "custom_guide_table_ndy3pp",
     "custom_guide_table_VPg83V",
-    "custom_guide_table_LG4Ri9"
+    "custom_guide_table_LG4Ri9",
+    "image_with_text_9hJHfr"
   ]
 }
