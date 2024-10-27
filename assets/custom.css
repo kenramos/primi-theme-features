@@ -1,0 +1,50 @@
+/* Custom Style for pages */
+  #shipping-details,
+  #return-details {
+      padding-left: 2rem;
+      margin-block-end: 2rem;
+  }
+
+  details table {
+      margin-inline: 4rem;
+  }
+
+  #shipping-details .icon,
+  #return-details .icon {
+      display: inline-block;
+      position: absolute;
+      top: 18px;
+      right: 0;
+      width: 22px;
+      height: 22px;
+  }
+
+  #shipping-details .icon::before,
+  #return-details .icon::before {
+      display: var(--display-block);
+      position: absolute;
+      content: "";
+      top: 9px;
+      left: 5px;
+      width: 10px;
+      height: 2px;
+      background: #000000;
+  }
+
+  #shipping-details .icon::after,
+  #return-details .icon::after {
+      display: var(--display-block);
+      position: absolute;
+      content: "";
+      top: 5px;
+      left: 9px;
+      width: 2px;
+      height: 10px;
+      background: #000000;
+  }
+
+  #shipping-details details[open] .icon::after,
+  #return-details details[open] .icon::after,
+  .tr-accordion-item.active .icon::after {
+      width: 0;
+  }
