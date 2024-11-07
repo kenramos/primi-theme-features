@@ -52,7 +52,7 @@
           "type": "question",
           "settings": {
             "title": "Faulty Items",
-            "answer": "<p>We deeply apologise for any inconvenience caused by faulty or damaged garments. If you believe your item has a fault, please contact our customer service team at <a href=\"https://www.primi.com.au/pages/contact\" target=\"_blank\" title=\"Primi Customer Service\">hello@primi.com.au</a> with your order number and images of the fault. Our team will work to resolve this with priority.</p>",
+            "answer": "<p>We deeply apologise for any inconvenience caused by faulty or damaged garments. If you believe your item has a fault, please contact our customer service team at <a href=\"https://www.primi.com.au/pages/contact\" target=\"_blank\" title=\"Primi Customer Service\">hello@primi.com.au</a> with your order number and images of the fault. Our team will work to resolve this with priority.</p><p>Our goods come with guarantees that cannot be excluded under the Australian Consumer Law. You are entitled to a replacement or refund for a major failure and for compensation for any other reasonably foreseeable loss or damage. You are also entitled to have the goods repaired or replaced if the goods fail to be of acceptable quality and the failure does not amount to a major failure.</p>",
             "add_html": ""
           }
         },
