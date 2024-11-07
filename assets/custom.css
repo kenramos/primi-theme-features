@@ -1,5 +1,5 @@
 /* Custom Style for pages */
-  #shipping-details,
+  .shipping-details,
   #return-details {
       padding-left: 2rem;
       margin-block-end: 2rem;
@@ -9,7 +9,7 @@
       margin-inline: 4rem;
   }
 
-  #shipping-details .icon,
+  .shipping-details .icon,
   #return-details .icon {
       display: inline-block;
       position: absolute;
@@ -19,7 +19,7 @@
       height: 22px;
   }
 
-  #shipping-details .icon::before,
+  .shipping-details .icon::before,
   #return-details .icon::before {
       display: var(--display-block);
       position: absolute;
@@ -31,7 +31,7 @@
       background: #000000;
   }
 
-  #shipping-details .icon::after,
+  .shipping-details .icon::after,
   #return-details .icon::after {
       display: var(--display-block);
       position: absolute;
@@ -43,7 +43,7 @@
       background: #000000;
   }
 
-  #shipping-details details[open] .icon::after,
+  .shipping-details details[open] .icon::after,
   #return-details details[open] .icon::after,
   .tr-accordion-item.active .icon::after {
       width: 0;
