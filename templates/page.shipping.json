@@ -8,91 +8,14 @@
  * ------------------------------------------------------------
  */
 {
+  "wrapper": "div#shipping-details.page-width--narrow",
   "sections": {
     "main": {
       "type": "main-page",
-      "disabled": true,
       "settings": {}
     },
     "main-page-faq": {
       "type": "main-page-faq",
-      "blocks": {
-        "title_cpyqD8": {
-          "type": "title",
-          "settings": {}
-        },
-        "content_abTbpd": {
-          "type": "content",
-          "settings": {}
-        },
-        "question_YkcpTP": {
-          "type": "question",
-          "settings": {
-            "title": "Australian Orders",
-            "answer": "<p>We are currently partnered with Australia Post for all orders within Australia.  Please note delivery times are estimated based on Australia Post delivery schedules, timeframes may vary particularly during peak retail seasons. </p>",
-            "add_html": "<table>\n<thead>\n<tr>\n<td><strong>ORDER VALUE</strong></td>\n<td><strong>STANDARD SHIPPING</strong></td>\n<td><strong>EXPRESS SHIPPING</strong></td>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>$0 - $150</td>\n<td>$6</td>\n<td>$10</td>\n</tr>\n<tr>\n<td>$150 +</td>\n<td>$6</td>\n<td>FREE</td>\n</tr>\n</tbody>\n</table>"
-          }
-        },
-        "question_E3n4h6": {
-          "type": "question",
-          "settings": {
-            "title": "International Orders",
-            "answer": "<p>We are currently partnered with Fedex & Australia Post Express for international shipping.</p>",
-            "add_html": "<table>\n<thead>\n<tr>\n<td>NEW ZEALAND</td>\n<td>Express Flat Rate</td>\n<td>$10</td>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>UNITED STATES &amp; UNITED KINGDOM</td>\n<td>Express Flat Rate</td>\n<td>$20</td>\n</tr>\n<tr>\n<td rowspan=\"2\">REST OF THE WORLD</td>\n<td>Orders $0 - $300</td>\n<td>$35</td>\n</tr>\n<tr>\n<td>Orders $300 +</td>\n<td>Free</td>\n</tr>\n</tbody>\n</table>"
-          }
-        },
-        "question_rxpwB6": {
-          "type": "question",
-          "settings": {
-            "title": "Lost & Stolen Parcels",
-            "answer": "<p>It is the customers responsibility to nominate a safe and secure shipping address. Primi is not responsible for any stolen or missing parcels once an order has been delivered to the nominated address.</p>",
-            "add_html": ""
-          }
-        },
-        "question_FgW7mR": {
-          "type": "question",
-          "settings": {
-            "title": "Late Parcels",
-            "answer": "<p>Once orders are lodged with our shipping provider, Primi is not responsible for late or delayed parcels.</p>",
-            "add_html": ""
-          }
-        },
-        "question_gxdiY3": {
-          "type": "question",
-          "settings": {
-            "title": "Return to Sender Parcels",
-            "answer": "<p>Return to sender parcels will incur a $10 return shipping fee.</p>",
-            "add_html": ""
-          }
-        },
-        "question_49khrN": {
-          "type": "question",
-          "settings": {
-            "title": "Australia Post Tracking",
-            "answer": "<p>To track your order, please visit: <a href=\"http://auspost.com.au/track/\" target=\"_blank\">www.auspost.com.au/track/</a></p>",
-            "add_html": ""
-          }
-        },
-        "question_jtDJHH": {
-          "type": "question",
-          "settings": {
-            "title": "International Customs & Taxes",
-            "answer": "<p>It is the customer's responsibility to be aware of any local customs & taxes charges. These fees are not included in your order total and must be paid to your local customs office prior to receiving your order. Primi will not offer refunds for any refused shipments due to additional customs & taxes charges. If this fee is not paid, the order will be returned to us at the customers expense.</p>",
-            "add_html": ""
-          }
-        }
-      },
-      "block_order": [
-        "title_cpyqD8",
-        "content_abTbpd",
-        "question_YkcpTP",
-        "question_E3n4h6",
-        "question_rxpwB6",
-        "question_FgW7mR",
-        "question_gxdiY3",
-        "question_49khrN",
-        "question_jtDJHH"
-      ],
       "settings": {}
     }
   },
