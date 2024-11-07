@@ -11,8 +11,7 @@
   "sections": {
     "main": {
       "type": "main-page",
-      "settings": {
-      }
+      "settings": {}
     },
     "custom_size_guide_7prjR3": {
       "type": "custom-size-guide",
@@ -177,10 +176,10 @@
         "text_inQfcA"
       ],
       "settings": {
-        "image": "shopify://shop_images/measure-guide_ea05da05-ffa4-4b9a-bbbc-13abd1964773.jpg",
+        "image": "shopify://shop_images/female_silhoutte-removebg-preview-1.png",
         "height": "adapt",
         "color_scheme": "background-1",
-        "layout": "text_first"
+        "layout": "image_first"
       }
     }
   },
