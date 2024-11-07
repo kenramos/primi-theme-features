@@ -11,6 +11,29 @@
   "sections": {
     "main-page-faq": {
       "type": "main-page-faq",
+      "blocks": {
+        "title_E8QKrG": {
+          "type": "title",
+          "settings": {}
+        },
+        "content_NeNKr8": {
+          "type": "content",
+          "settings": {}
+        },
+        "question_tTYByz": {
+          "type": "question",
+          "settings": {
+            "title": "Question",
+            "answer": "<p>Answer</p>",
+            "add_html": ""
+          }
+        }
+      },
+      "block_order": [
+        "title_E8QKrG",
+        "content_NeNKr8",
+        "question_tTYByz"
+      ],
       "settings": {}
     }
   },
