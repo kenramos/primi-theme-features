@@ -15,6 +15,19 @@
     },
     "main-page-faq": {
       "type": "main-page-faq",
+      "blocks": {
+        "question_Qhf3PY": {
+          "type": "question",
+          "settings": {
+            "title": "Question",
+            "answer": "<p>Answer</p>",
+            "add_html": ""
+          }
+        }
+      },
+      "block_order": [
+        "question_Qhf3PY"
+      ],
       "settings": {}
     }
   },
