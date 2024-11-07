@@ -22,7 +22,7 @@
   }
 {%- endstyle -%}
 
-<div class="page-width page-width--narrow">
+<div class="page-width page-width--narrow {% if section.settings.custom_class %}{{ section.settings.custom_class }}{% endif %}">
   {%- for block in section.blocks -%}
     {%- case block.type -%}
       {%- when 'title'-%}
