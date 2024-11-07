@@ -11,7 +11,45 @@
   "sections": {
     "main-page-faq": {
       "type": "main-page-faq",
-      "settings": {}
+      "blocks": {
+        "title_YR8VgH": {
+          "type": "title",
+          "settings": {}
+        },
+        "question_pYfjCg": {
+          "type": "question",
+          "settings": {
+            "title": "Australian returns",
+            "answer": "<p>If you change your mind within <strong>14 days</strong> of receiving your order, we offer refunds or 110% store credits* subject to the following conditions:</p><ul><li>Product is returned in original condition with tags attached</li><li>Product is unworn, unwashed and unused</li><li>Product is not damaged in any way</li><li>Product is <strong>not</strong> marked as a final sale item</li><li>Parcel is posted back within the 14 day return window. We will not accept returns sent outside of this window. </li></ul><p>If you wish to use our return label, please email us at <a href=\"https://www.primi.com.au/pages/contact\" target=\"_blank\" title=\"Primi Contact Details\"><span style=\"text-decoration:underline\"><strong>hello@primi.com.au.</strong></span></a> We will send you a pre-paid label to attach to your return parcel and deduct <strong>$10</strong> from your refund. If you choose to receive an <span style=\"text-decoration:underline\"><strong>110% store credit* </strong></span>return shipping is free.</p>",
+            "add_html": ""
+          }
+        },
+        "content_PqRahA": {
+          "type": "content",
+          "settings": {}
+        },
+        "question_bknEXy": {
+          "type": "question",
+          "settings": {
+            "title": "International Returns",
+            "answer": "<p>Answer</p>",
+            "add_html": ""
+          }
+        }
+      },
+      "block_order": [
+        "title_YR8VgH",
+        "question_pYfjCg",
+        "content_PqRahA",
+        "question_bknEXy"
+      ],
+      "settings": {
+        "padding_top": 40,
+        "padding_bottom": 52,
+        "mobile_padding_top": 40,
+        "mobile_padding_bottom": 52,
+        "custom_class": ""
+      }
     }
   },
   "order": [
