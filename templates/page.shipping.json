@@ -57,19 +57,27 @@
             "add_html": ""
           }
         },
-        "question_gRWcVy": {
-          "type": "question",
-          "settings": {
-            "title": "Question",
-            "answer": "<p>Answer</p>",
-            "add_html": ""
-          }
-        },
         "question_gxdiY3": {
           "type": "question",
           "settings": {
             "title": "Return to Sender Parcels",
             "answer": "<p>Return to sender parcels will incur a $10 return shipping fee.</p>",
+            "add_html": ""
+          }
+        },
+        "question_49khrN": {
+          "type": "question",
+          "settings": {
+            "title": "Australia Post Tracking",
+            "answer": "<p>To track your order, please visit: <a href=\"http://auspost.com.au/track/\" target=\"_blank\">www.auspost.com.au/track/</a></p>",
+            "add_html": ""
+          }
+        },
+        "question_jtDJHH": {
+          "type": "question",
+          "settings": {
+            "title": "International Customs & Taxes",
+            "answer": "<p>It is the customer's responsibility to be aware of any local customs & taxes charges. These fees are not included in your order total and must be paid to your local customs office prior to receiving your order. Primi will not offer refunds for any refused shipments due to additional customs & taxes charges. If this fee is not paid, the order will be returned to us at the customers expense.</p>",
             "add_html": ""
           }
         }
@@ -81,8 +89,9 @@
         "question_E3n4h6",
         "question_rxpwB6",
         "question_FgW7mR",
-        "question_gRWcVy",
-        "question_gxdiY3"
+        "question_gxdiY3",
+        "question_49khrN",
+        "question_jtDJHH"
       ],
       "settings": {}
     }
