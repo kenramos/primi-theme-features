@@ -56,6 +56,22 @@
             "answer": "<p>Once orders are lodged with our shipping provider, Primi is not responsible for late or delayed parcels.</p>",
             "add_html": ""
           }
+        },
+        "question_gRWcVy": {
+          "type": "question",
+          "settings": {
+            "title": "Question",
+            "answer": "<p>Answer</p>",
+            "add_html": ""
+          }
+        },
+        "question_gxdiY3": {
+          "type": "question",
+          "settings": {
+            "title": "Return to Sender Parcels",
+            "answer": "<p>Return to sender parcels will incur a $10 return shipping fee.</p>",
+            "add_html": ""
+          }
         }
       },
       "block_order": [
@@ -64,7 +80,9 @@
         "question_YkcpTP",
         "question_E3n4h6",
         "question_rxpwB6",
-        "question_FgW7mR"
+        "question_FgW7mR",
+        "question_gRWcVy",
+        "question_gxdiY3"
       ],
       "settings": {}
     }
