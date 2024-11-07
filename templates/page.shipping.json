@@ -93,7 +93,7 @@
         "padding_bottom": 52,
         "mobile_padding_top": 20,
         "mobile_padding_bottom": 28,
-        "custom_class": "shipping-guide"
+        "custom_class": "shipping-details"
       }
     }
   },
