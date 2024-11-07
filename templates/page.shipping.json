@@ -12,9 +12,14 @@
     "main": {
       "type": "main-page",
       "settings": {}
+    },
+    "main-page-faq": {
+      "type": "main-page-faq",
+      "settings": {}
     }
   },
   "order": [
-    "main"
+    "main",
+    "main-page-faq"
   ]
 }
