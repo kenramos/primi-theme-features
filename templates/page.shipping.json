@@ -8,7 +8,6 @@
  * ------------------------------------------------------------
  */
 {
-  "wrapper": "div#shipping-details.page-width--narrow",
   "sections": {
     "main": {
       "type": "main-page",
