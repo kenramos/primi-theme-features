@@ -9,7 +9,7 @@
       margin-inline: 4rem;
   }
 
-  .shipping-details .icon,
+  /* .shipping-details .icon,
   #return-details .icon {
       display: inline-block;
       position: absolute;
@@ -47,4 +47,4 @@
   #return-details details[open] .icon::after,
   .tr-accordion-item.active .icon::after {
       width: 0;
-  }
+  } */
