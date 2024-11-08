@@ -18,6 +18,10 @@
     max-width: 100%;
     padding: 3rem;
   }
+
+  .size-guide-modal .table-container {
+    max-width: 100%
+  }
 }
 
   /* .shipping-details .icon,
