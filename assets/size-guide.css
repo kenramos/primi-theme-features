@@ -18,9 +18,7 @@
   margin: auto;
 } */
 
-
-
-.toggle-switch {
+.toggle {
   position: relative;
   position: -webkit-relative;
   /* display: inline-block; */
@@ -33,7 +31,7 @@
 }
 
 /* After toggle changes */
-.toggle-switch::after {
+.toggle::after {
   content: "";
   position: absolute;
   position: -webkit-absolute;
@@ -47,12 +45,12 @@
 }
 
 /* Checkbox checked effect */
-.checkbox:checked + .toggle-switch::after {
+.checkbox:checked + .toggle::after {
   left: 50%;
 }
 
 /* Checkbox checked toggle label bg color */
-.checkbox:checked + .toggle-switch {
+.checkbox:checked + .toggle {
   background-color: #FFFFFF;
 }
 
