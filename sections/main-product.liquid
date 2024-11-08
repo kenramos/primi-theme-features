@@ -604,7 +604,7 @@
 {% comment %}SIZE-GUIDE-POPUP{% endcomment %}
   {% assign popups = section.blocks | where: "type", "popup" %}
   {%- for block in popups -%}
-    <modal-dialog id="PopupModal-{{ block.id }}" class="product-popup-modal" {{ block.shopify_attributes }}>
+    <modal-dialog id="PopupModal-{{ block.id }}" class="product-popup-modal {{ block.settings.custom_class }}" {{ block.shopify_attributes }}>
       <div role="dialog" aria-label="{{ block.settings.text }}" aria-modal="true" class="product-popup-modal__content" tabindex="-1">
         <button id="ModalClose-{{ block.id }}" type="button" class="product-popup-modal__toggle" aria-label="{{ 'accessibility.close' | t }}">{% render 'icon-close' %}</button>
         <div class="product-popup-modal__content-info">
@@ -1031,6 +1031,11 @@
           "type": "html",
           "id": "html_content",
           "label": "Popup Content (HTML)"
+        },
+        {
+          "type": "text",
+          "id": "custom_class",
+          "label": "Add custom_class"
         }
       ]
     },
