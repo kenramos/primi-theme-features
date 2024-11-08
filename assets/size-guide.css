@@ -11,6 +11,7 @@
   grid-area: title;
   text-align: left;
   justify-self: flex-start;
+  width: 150px;
 }
 
 /* .size-guide-container {
