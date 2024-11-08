@@ -25,10 +25,10 @@ details table {
   overflow-x: unset;
 }
 
-.size-guide-modal .table-scroll tbody td:nth-child(2) {
+/* .size-guide-modal .table-scroll tbody td:nth-child(2) {
     left: 50px;
 }
-
+ */
 .table-scroll thead td:first-child,
 .table-scroll tbody td:first-child,
 .table-scroll tbody td:nth-child(2) {
