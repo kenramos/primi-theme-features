@@ -30,6 +30,7 @@
 .toggle:after {
   content: "";
   position: absolute;
+  position: -webkit-absolute;
   width: 50%;
   height: 30px;
   border-radius: 30px;
