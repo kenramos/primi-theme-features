@@ -20,7 +20,7 @@
   position: -webkit-relative;
   /* display: inline-block; */
   grid-area: switch;
-  justify-self: end;
+  /* justify-self: end; */
   width: 80px;
   height: 32px;
   border-radius: 30px;
