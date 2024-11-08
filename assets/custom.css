@@ -21,6 +21,10 @@ details table {
   min-width: 475px
 }
 
+.size-guide-modal .size-guide {
+  overflow-x: unset;
+}
+
 @media screen and (min-width: 750px){
   .size-guide-modal {
     max-width: 100%;
