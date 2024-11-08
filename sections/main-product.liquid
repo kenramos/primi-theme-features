@@ -264,10 +264,7 @@
                         {{ 'products.product.select_size' | t }}
                       </span>
                       {% render 'icon-caret' %}
-                      </div>
-
-                      <div><p>Sizing based on Australian sizing, please visit size guide for international conversions</p></div>
-                      
+                      </div>         
                       <div class="size-wrapper">
                         {% assign options1Filtered = '' %}
                         {% for option1 in options1 %}
@@ -330,7 +327,8 @@
                           {% endfor %}    
                     
                       </div> 
-                     </fieldset> 
+                     </fieldset>
+                       <div><p>Sizing based on Australian sizing, please visit size guide for international conversions</p></div>
                    {% endif %}
                     {%- for option in product.options_with_values -%}
                       {% assign downcased_option = option.name | downcase %}
