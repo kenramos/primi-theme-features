@@ -32,8 +32,8 @@
         "757e87a4-6ec2-486f-8216-41648ed0ed47": {
           "type": "popup",
           "settings": {
-            "subtext": "",
-            "text": "See our size guide",
+            "subtext": "Pay Later",
+            "text": "See options",
             "page": "size-guide-2024",
             "hide_title": true
           }
