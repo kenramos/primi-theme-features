@@ -41,7 +41,8 @@
         "variant_picker": {
           "type": "variant_picker",
           "settings": {
-            "picker_type": "button"
+            "picker_type": "button",
+            "size_caption": "Sizing based on Australian sizing, please visit <a href=\"/pages/size-guide-new\" title=\"Size guide New\">size guide</a> for international conversions"
           }
         },
         "quantity_selector": {
