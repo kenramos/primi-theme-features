@@ -473,5 +473,10 @@
         "shipping_policy": "Shipping policy"
       }
     }
+  },
+  "customer_accounts": {
+    "shop_policies": {
+      "shipping_policy": "Shipping policy here"
+    }
   }
 }
