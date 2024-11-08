@@ -26,7 +26,7 @@ details table {
 }
 
 .size-guide-modal .table-scroll tbody td:nth-child(2) {
-    left: 0;
+    left: 45px;
 }
 
 @media screen and (min-width: 750px){
