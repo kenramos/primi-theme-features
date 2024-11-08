@@ -33,7 +33,7 @@
           "settings": {
             "title": "International Orders",
             "answer": "<p>We are currently partnered with Fedex & Australia Post Express for international shipping.</p>",
-            "add_html": "<table>\n<thead>\n</thead>\n<tbody>\n<tr>\n<td>NEW ZEALAND</td>\n<td>Express Flat Rate</td>\n<td width=\"65\">$10</td>\n</tr>\n<tr>\n<td>UNITED STATES &amp; UNITED KINGDOM</td>\n<td>Express Flat Rate</td>\n<td width=\"65\">$20</td>\n</tr>\n<tr>\n<td rowspan=\"2\">REST OF THE WORLD</td>\n<td>Orders $0 - $300</td>\n<td width=\"65\">$35</td>\n</tr>\n<tr>\n<td>Orders $300 +</td>\n<td width=\"65\">Free</td>\n</tr>\n</tbody>\n</table>"
+            "add_html": "<table>\n<thead>\n</thead>\n<tbody>\n<tr>\n<td>NEW ZEALAND</td>\n<td>Express Flat Rate</td>\n<td width=\"60\">$10</td>\n</tr>\n<tr>\n<td>UNITED STATES &amp; UNITED KINGDOM</td>\n<td>Express Flat Rate</td>\n<td width=\"60\">$20</td>\n</tr>\n<tr>\n<td rowspan=\"2\">REST OF THE WORLD</td>\n<td>Orders $0 - $300</td>\n<td width=\"60\">$35</td>\n</tr>\n<tr>\n<td>Orders $300 +</td>\n<td width=\"60\">Free</td>\n</tr>\n</tbody>\n</table>"
           }
         },
         "question_GXkaE6": {
