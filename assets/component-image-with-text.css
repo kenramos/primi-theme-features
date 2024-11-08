@@ -25,7 +25,9 @@
   .image-with-text__grid--reverse {
     flex-direction: row-reverse;
   }
+}
 
+@media screen and (max-width: 750px) {
   .image-with-text__text--top {
     flex-direction: column-reverse;
   }
