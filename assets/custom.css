@@ -21,7 +21,7 @@ details table {
   min-width: 475px
 }
 
-.size-guide-modal .size-guide {
+.product-popup-modal__content table {
   overflow-x: unset;
 }
 
