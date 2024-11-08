@@ -42,6 +42,7 @@
         },
         "popup_TUW3r7": {
           "type": "popup",
+          "disabled": true,
           "settings": {
             "subtext": "",
             "text": "Size guide",
