@@ -4,7 +4,7 @@
       "title switch"
       "table table";
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
 }
 
 .size-guide-container h3 {
