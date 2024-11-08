@@ -27,6 +27,7 @@
   height: 32px;
   border-radius: 30px;
   border: 2px solid #121212BF;
+    text-align: right;
 }
 
 /* After toggle changes */
