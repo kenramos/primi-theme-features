@@ -3,6 +3,7 @@
   grid-template-areas:
       "title switch"
       "table table";
+  grid-template-columns: 1fr 1fr;
   align-items: center;
   justify-content: space-between;
 }
