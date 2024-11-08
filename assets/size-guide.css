@@ -110,3 +110,66 @@
     margin: 1rem auto;
   }
 }
+
+/* STICKY COLUMNS AND HEADER */
+.table-scroll {
+    position: relative;
+    width:100%;
+    z-index: 3;
+    margin: auto;
+    overflow: auto;
+    /* height: 350px; */
+  }
+  .table-scroll table {
+    width: 100%;
+    min-width: 600px;
+    margin: auto;
+    border-collapse: separate;
+    border-spacing: 0;
+  }
+
+ .table-scroll thead td {
+    background: #333;
+    color: #fff;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+     left: 0;
+   padding: 1rem;
+  }
+
+.table-scroll thead td:first-child,
+.table-scroll tbody td:first-child,
+.table-scroll tbody td:nth-child(2){
+    background: #333;
+    color: #fff;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    left: 0;
+    padding: 1rem;
+    width: 60px;
+  }
+.table-scroll tbody td:nth-child(2) {
+  left: 60px;
+}
+
+.table-scroll tbody td:nth-child(3) {
+  width: 80px
+}
+
+thead td:first-child,
+tbody td:first-child {
+    z-index: 5;
+  }
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.table-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.table-scroll {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
