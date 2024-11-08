@@ -9,6 +9,10 @@
       margin-inline: 3rem;
   }
 
+.sizing-disclaimer {
+  padding: 0 20px;
+}
+
   /* .shipping-details .icon,
   .return-details .icon {
       display: inline-block;
