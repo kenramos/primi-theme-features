@@ -29,6 +29,12 @@ details table {
     left: 50px;
 }
 
+.table-scroll thead td:first-child,
+.table-scroll tbody td:first-child,
+.table-scroll tbody td:nth-child(2) {
+  min-width: 60px;
+}
+
 @media screen and (min-width: 750px){
   .size-guide-modal {
     max-width: 100%;
