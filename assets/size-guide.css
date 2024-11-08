@@ -17,6 +17,7 @@
 
 .toggle {
   position: relative;
+  position: -webkit-relative;
   /* display: inline-block; */
   grid-area: switch;
   justify-self: end;
@@ -115,6 +116,7 @@
 /* STICKY COLUMNS AND HEADER */
 .table-scroll {
     position: relative;
+  position: -webkit-relative;
     width:100%;
     /* z-index: 3; */
     margin: auto;
