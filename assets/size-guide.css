@@ -8,7 +8,7 @@
 
 .size-guide-container h3 {
   grid-area: title;
-  /* justify-self: flex-start; */
+  justify-self: flex-start;
 }
 
 /* .size-guide-container {
