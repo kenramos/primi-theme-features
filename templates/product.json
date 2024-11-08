@@ -14,8 +14,7 @@
       "blocks": {
         "title": {
           "type": "title",
-          "settings": {
-          }
+          "settings": {}
         },
         "subtitle": {
           "type": "text",
@@ -27,6 +26,7 @@
         "price": {
           "type": "price",
           "settings": {
+            "hide_tax_note": true
           }
         },
         "757e87a4-6ec2-486f-8216-41648ed0ed47": {
@@ -46,8 +46,7 @@
         },
         "quantity_selector": {
           "type": "quantity_selector",
-          "settings": {
-          }
+          "settings": {}
         },
         "buy_buttons": {
           "type": "buy_buttons",
@@ -81,8 +80,7 @@
         "1d5ec9a9-3899-4106-a26f-a98e18b55c32": {
           "type": "rating",
           "disabled": true,
-          "settings": {
-          }
+          "settings": {}
         },
         "0199f34f-067e-4fea-b686-8ca2ff65bdd0": {
           "type": "collapsible_tab",
@@ -127,9 +125,7 @@
         "b24cec51-1d46-4105-81c4-22fe6b3c4669",
         "e502ea6b-7c13-463b-9202-f21e6f934657"
       ],
-      "custom_css": [
-
-      ],
+      "custom_css": [],
       "settings": {
         "enable_sticky_info": true,
         "hide_variants": true,
