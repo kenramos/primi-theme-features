@@ -135,6 +135,7 @@
     },
     "product-recommendations": {
       "type": "product-recommendations",
+      "disabled": true,
       "settings": {
         "heading": "RELATED PRODUCTS",
         "image_ratio": "adapt",
