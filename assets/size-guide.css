@@ -4,6 +4,7 @@
       "title switch"
       "table table";
   align-items: center;
+  justify-content: center;
 }
 
 .size-guide-container h3 {
