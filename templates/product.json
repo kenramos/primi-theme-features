@@ -56,7 +56,7 @@
           "type": "variant_picker",
           "settings": {
             "picker_type": "button",
-            "size_caption": "Sizing based on Australian sizing. Visit <a href=\"/pages/size-guide-new\" title=\"Size guide New\">size guide</a> for international conversions."
+            "size_caption": "Sizing based on Australian sizing. Visit <a href=\"/pages/size-guide-new\" title=\"Size guide New\">size guide</a> for conversions."
           }
         },
         "quantity_selector": {
