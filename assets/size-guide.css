@@ -10,7 +10,7 @@
 
 .size-guide-container h3 {
   grid-area: title;
-  text-align: left;
+  /* text-align: left; */
   justify-self: flex-start;
   width: 100%;
 }
