@@ -601,6 +601,7 @@
     </div>
   </product-modal>
 
+{% comment %}SIZE-GUIDE-POPUP{% endcomment %}
   {% assign popups = section.blocks | where: "type", "popup" %}
   {%- for block in popups -%}
     <modal-dialog id="PopupModal-{{ block.id }}" class="product-popup-modal" {{ block.shopify_attributes }}>
@@ -610,6 +611,7 @@
           {% unless block.settings.hide_title %}
           <h1 class="h2">{{ block.settings.page.title }}</h1>
           {% endunless %}
+          {{ block.settings.html_content }}
           {{ block.settings.page.content }}
         </div>
       </div>
@@ -1024,6 +1026,11 @@
           "id": "hide_title",
           "label": "Hide Page Title",
           "default": false
+        },
+        {
+          "type": "html",
+          "id": "html_content",
+          "label": "Popup Content (HTML)"
         }
       ]
     },
