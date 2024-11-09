@@ -33,6 +33,10 @@
         <div class="rte PageContent">
           {{ page.content }}
         </div>
+      {% when 'addl-content' %}
+      <div class="rte">
+          {{ block.settings.addl_content }}
+        </div>
       {%- when 'question' -%}
         <div class="faq__accordion accordion">
           <details>
